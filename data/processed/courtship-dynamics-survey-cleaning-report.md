@@ -1,7 +1,7 @@
 # Cleaning Report
 
 - Source file: data/raw/courtship-dynamics-survey.csv
-- Processed responses: 10
+- Processed responses: 12
 - Processed dataset: data/processed/courtship-dynamics-survey-processed.csv
 - Issues dataset: data/processed/courtship-dynamics-survey-issues.csv
 
@@ -17,13 +17,13 @@
 
 These checks validate the processing pipeline internally. They are not additional analytical variables in the processed CSV.
 
-- Raw rows read: 10
-- Processed rows written: 10
+- Raw rows read: 12
+- Processed rows written: 12
 - Duplicate raw response rows found: 0
 - initial_contact_clean required normalization relative to the raw source in 7 rows.
-- first_date_invite_clean required normalization relative to the raw source in 8 rows.
-- routine_clean required normalization relative to the raw source in 3 rows.
-- location_clean required normalization relative to the raw source in 3 rows.
+- first_date_invite_clean required normalization relative to the raw source in 9 rows.
+- routine_clean required normalization relative to the raw source in 6 rows.
+- location_clean required normalization relative to the raw source in 4 rows.
 
 ## Location normalization
 
@@ -37,6 +37,8 @@ These checks validate the processing pipeline internally. They are not additiona
 - Response 8: 'São paulo ' -> 'Sao Paulo, SP' (city_inferred_state)
 - Response 9: 'Florianopolis / Santa Catarina,  Brasil' -> 'Florianopolis, SC' (city_state_country_exact)
 - Response 10: 'SP' -> 'SP' (state_only)
+- Response 11: 'Cascais' -> 'Cascais, Portugal' (city_country_exact)
+- Response 12: 'São Paulo ' -> 'Sao Paulo, SP' (city_inferred_state)
 
 ## Issues found
 

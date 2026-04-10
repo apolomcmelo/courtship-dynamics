@@ -40,8 +40,8 @@ File: `data/processed/courtship-dynamics-survey-processed.csv`
 | `routine_clean` | text | Cleaned description of whether communication became routine after the first meeting. | Free text |
 | `routine_category` | categorical | Normalized pattern of post-date communication trajectory. | `increasing`, `declining`, `established`, `stable`, `other`, `unknown` |
 | `age_range` | categorical | Normalized age bracket. | `18_24`, `25_34`, `35_44`, or original cleaned value if unmapped |
-| `location_normalized` | text | Final normalized location used for analysis. | `City, UF`, `UF`, `Others`, or blank if unmapped |
-| `location_resolution` | categorical | How location normalization was resolved. | `state_only`, `city_inferred_state`, `city_state_exact`, `city_state_country_exact`, `city_state_pattern`, `other_reported_location`, `unmapped` |
+| `location_normalized` | text | Final normalized location used for analysis. | `City, UF`, `UF`, `City, Country`, `Others`, or blank if unmapped |
+| `location_resolution` | categorical | How location normalization was resolved. | `state_only`, `city_inferred_state`, `city_state_exact`, `city_state_country_exact`, `city_country_exact`, `city_state_pattern`, `other_reported_location`, `unmapped` |
 | `gender` | categorical | Normalized participant gender. | `female`, `unknown` |
 | `sexual_orientation` | categorical | Normalized sexual orientation. | `heterosexual`, `bisexual`, `pansexual`, `unknown` |
 | `data_quality_flags` | text | Semicolon-separated issue codes raised during validation. Blank means no issues were flagged. | Example: `possible_inconsistency_invitation` |
@@ -55,6 +55,7 @@ File: `data/processed/courtship-dynamics-survey-processed.csv`
 | State only identified | `SC` |
 | City and state identified | `Atibaia, SP` |
 | City, state, and country in source | `Florianopolis, SC` |
+| Foreign city identified without state | `Cascais, Portugal` |
 | Ambiguous but intentionally grouped as non-standard location | `Others` with `location_resolution = other_reported_location` |
 | Ambiguous or non-geographic answer not covered by a rule | blank `location_normalized` with `location_resolution = unmapped` |
 

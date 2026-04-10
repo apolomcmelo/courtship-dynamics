@@ -4,7 +4,7 @@ import csv
 import re
 import unicodedata
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 
@@ -125,8 +125,15 @@ def normalize_narrative_text(value: str) -> str:
 
 
 def normalize_timestamp(value: str) -> str:
-    parsed = datetime.strptime(clean_text(value), "%Y/%m/%d %I:%M:%S %p GMT+0")
-    return parsed.replace(tzinfo=timezone.utc).isoformat()
+    cleaned = clean_text(value)
+    match = re.fullmatch(r"(?P<dt>\d{4}/\d{2}/\d{2} \d{1,2}:\d{2}:\d{2} (?:AM|PM)) GMT(?P<offset>[+-]\d{1,2})", cleaned)
+    if not match:
+        raise ValueError(f"Unsupported timestamp format: {cleaned!r}")
+
+    naive_dt = datetime.strptime(match.group("dt"), "%Y/%m/%d %I:%M:%S %p")
+    offset_hours = int(match.group("offset"))
+    offset = timezone(timedelta(hours=offset_hours))
+    return naive_dt.replace(tzinfo=offset).astimezone(timezone.utc).isoformat()
 
 
 def normalize_origin(value: str) -> tuple[str, str, str]:
@@ -287,6 +294,13 @@ def normalize_location(value: str) -> dict[str, str]:
             "state_name_normalized": STATE_NAMES["SC"],
             "location_normalized": "Florianopolis, SC",
             "location_resolution": "city_state_country_exact",
+        },
+        "cascais": {
+            "city_normalized": "Cascais",
+            "state_code_normalized": "",
+            "state_name_normalized": "",
+            "location_normalized": "Cascais, Portugal",
+            "location_resolution": "city_country_exact",
         },
     }
 
