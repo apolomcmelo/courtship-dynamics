@@ -15,6 +15,7 @@ type Params = Record<string, string | number>;
 interface I18nContextValue {
   locale: string;
   t: (key: string, params?: Params) => string;
+  tRaw: (key: string) => unknown;
   setLocale: (locale: string) => void;
 }
 
@@ -38,6 +39,18 @@ function resolveKey(messages: LocaleMessages, key: string): string {
   }
 
   return typeof current === 'string' ? current : key;
+}
+
+function resolveKeyRaw(messages: LocaleMessages, key: string): unknown {
+  const parts = key.split('.');
+  let current: unknown = messages;
+
+  for (const part of parts) {
+    if (typeof current !== 'object' || current === null) return undefined;
+    current = (current as Record<string, unknown>)[part];
+  }
+
+  return current;
 }
 
 function interpolate(template: string, params: Params): string {
@@ -70,7 +83,15 @@ export function I18nProvider({ children, defaultLocale = DEFAULT_LOCALE }: I18nP
     [locale],
   );
 
-  return <I18nContext.Provider value={{ locale, t, setLocale }}>{children}</I18nContext.Provider>;
+  const tRaw = useCallback(
+    (key: string): unknown => {
+      const messages = LOCALES[locale] ?? LOCALES[DEFAULT_LOCALE];
+      return resolveKeyRaw(messages, key);
+    },
+    [locale],
+  );
+
+  return <I18nContext.Provider value={{ locale, t, tRaw, setLocale }}>{children}</I18nContext.Provider>;
 }
 
 // ─── Hook ─────────────────────────────────────────────────────────────────────

@@ -457,37 +457,162 @@
             "article": "Artigo Científico"
         },
         "overview": {
-            "badge": "BASE CIENTÍFICA",
+            "badge": "ESTUDO COMPORTAMENTAL",
             "heroTitle": "O Paradoxo da Atração vs. Estabilidade",
-            "heroSubtitle": "Uma análise baseada em evidências sobre como os traços de personalidade que geram atração inicial frequentemente divergem daqueles necessários para a satisfação conjugal a longo prazo.",
-            "findingsTitle": "Principais Descobertas",
-            "findings": {
-                "neuroticism": {
-                    "title": "Neuroticismo: o inimigo nº 1 da longevidade",
-                    "body": "A instabilidade emocional é o preditor mais forte de divórcio e insatisfação conjugal, superando todos os outros traços de personalidade."
+            "heroSubtitle": "Uma análise baseada em evidências sobre os 8 arquétipos masculinos, explorando como os traços de personalidade que geram atração inicial frequentemente divergem daqueles necessários para a satisfação conjugal a longo prazo.",
+            "spectrum": {
+                "title": "O Espectro do Comportamento Masculino",
+                "description": "A literatura científica revela um padrão claro: comportamentos ligados à busca de novidade (Sensation Seeking) e dominância geram alta atração inicial, mas frequentemente falham em sustentar intimidade emocional. O gráfico abaixo ilustra a relação inversa entre excitação inicial e durabilidade relacional.",
+                "legend": {
+                    "instability": "Alta Instabilidade",
+                    "moderate": "Risco Moderado",
+                    "stability": "Alta Estabilidade"
                 },
-                "conscientiousness": {
-                    "title": "Conscienciosidade prediz décadas de satisfação",
-                    "body": "Estudos longitudinais de até 45 anos confirmam que a conscienciosidade é o preditor mais consistente de estabilidade e bem-estar conjugal."
+                "xAxis": "Estabilidade a Longo Prazo / Satisfação (%)",
+                "yAxis": "Nível de Atração e Excitação Inicial (%)"
+            },
+            "structure": {
+                "title": "Análise Estrutural dos Arquétipos",
+                "description": "Avaliando de forma crítica os comportamentos observáveis e seus resultados tendenciais baseados na teoria do apego e no modelo Big Five.",
+                "headers": {
+                    "archetype": "Arquétipo",
+                    "behaviors": "Comportamentos Principais",
+                    "perception": "Percepção Inicial",
+                    "outcome": "Resultado Relacional (Longo Prazo)"
                 },
-                "darkTriad": {
-                    "title": "O Paradoxo da Tríade Sombria",
-                    "body": "Traços narcisistas geram altíssima atração inicial, mas levam a uma queda acentuada de satisfação à medida que o relacionamento avança."
-                },
-                "attachment": {
-                    "title": "Teoria do Apego: a base emocional",
-                    "body": "Apenas o apego seguro fornece a base para regulação emocional mútua, comunicação eficaz e intimidade sustentável a longo prazo."
+                "archetypes": [
+                    {
+                        "name": "O Aventureiro Carismático",
+                        "behaviors": "Sociável, espontâneo, busca constante por estímulos e aversão à rotina.",
+                        "perception": "Muito Atraente, divertido, vida leve.",
+                        "outcome": "Baixa estabilidade. Tendência a relações curtas.",
+                        "perceptionHighlight": true,
+                        "outcomeColor": "red"
+                    },
+                    {
+                        "name": "O Consistente Confiável",
+                        "behaviors": "Previsível, responsável, cumpre promessas e foca no longo prazo.",
+                        "perception": "Menos excitante, percebido como \"seguro\".",
+                        "outcome": "Maior satisfação, duração e estabilidade.",
+                        "perceptionHighlight": false,
+                        "outcomeColor": "emerald",
+                        "highlight": true
+                    },
+                    {
+                        "name": "O Ansioso Intenso",
+                        "behaviors": "Presente em excesso, busca validação constante, intensidade emocional alta.",
+                        "perception": "Envolvente no início, sufocante depois.",
+                        "outcome": "Alta instabilidade e conflitos.",
+                        "perceptionHighlight": false,
+                        "outcomeColor": "red"
+                    },
+                    {
+                        "name": "O Evitativo Independente",
+                        "behaviors": "Distante, evita vulnerabilidade, valoriza extrema autonomia.",
+                        "perception": "Misterioso, \"difícil de conquistar\".",
+                        "outcome": "Baixa intimidade emocional, relações superficiais.",
+                        "perceptionHighlight": false,
+                        "outcomeColor": "amber"
+                    },
+                    {
+                        "name": "O Social Dominante",
+                        "behaviors": "Confiante, assertivo, lidera interações, alto capital social.",
+                        "perception": "Muito Atraente no curto prazo.",
+                        "outcome": "Variável. Pode estabilizar ou ser exploratório.",
+                        "perceptionHighlight": true,
+                        "outcomeColor": "amber"
+                    },
+                    {
+                        "name": "O Impulsivo Desorganizado",
+                        "behaviors": "Inconsistente, quebra promessas, reativo emocionalmente.",
+                        "perception": "Intenso e imprevisível.",
+                        "outcome": "Altíssima taxa de ruptura e insatisfação.",
+                        "perceptionHighlight": false,
+                        "outcomeColor": "red"
+                    },
+                    {
+                        "name": "O Narcísico Encantador",
+                        "behaviors": "Charmoso inicial, busca admiração contínua, baixa empatia real.",
+                        "perception": "Extremamente Atraente inicialmente.",
+                        "outcome": "Queda drástica de satisfação, toxicidade.",
+                        "perceptionHighlight": true,
+                        "outcomeColor": "red"
+                    },
+                    {
+                        "name": "O Seguro Equilibrado",
+                        "behaviors": "Consistente, emocionalmente disponível, comunicação transparente.",
+                        "perception": "Percebido como \"normal\", sem picos dramáticos.",
+                        "outcome": "Maior probabilidade de relação saudável e rica.",
+                        "perceptionHighlight": false,
+                        "outcomeColor": "emerald",
+                        "highlight": true
+                    }
+                ]
+            },
+            "psychology": {
+                "title": "Os Motores Ocultos da Personalidade",
+                "description": "A análise científica utilizando o modelo Big Five (Cinco Grandes Fatores) e a Teoria do Apego desmistifica o sucesso relacional. Enquanto a Extroversão impulsiona a atração inicial, é a Conscienciosidade (Conscientiousness) aliada ao baixo Neuroticismo que predizem a longevidade conjugal.",
+                "descriptionHighlights": [
+                    "Extroversão",
+                    "Conscienciosidade (Conscientiousness)",
+                    "Neuroticismo"
+                ],
+                "chartTitle": "Comparativo de Traços: Estáveis vs. Instáveis",
+                "yAxis": "Intensidade do Traço",
+                "stableLabel": "Perfis Estáveis (Consistente, Seguro)",
+                "unstableLabel": "Perfis Instáveis (Narcísico, Impulsivo, Ansioso)",
+                "traitLabels": [
+                    "Conscienciosidade",
+                    "Neuroticismo",
+                    "Abertura/Busca Novidade",
+                    "Extroversão"
+                ],
+                "cards": {
+                    "conscientiousness": {
+                        "title": "Conscienciosidade (O Fator de Sucesso)",
+                        "body": "Indivíduos que pontuam alto neste traço (Consistente, Seguro) cumprem acordos, administram impulsos e trabalham na manutenção da relação."
+                    },
+                    "neuroticism": {
+                        "title": "Neuroticismo (O Fator de Risco)",
+                        "body": "A instabilidade emocional (Ansioso, Impulsivo) gera atrito constante, amplificando conflitos menores e desgastando a confiança mútua."
+                    }
                 }
             },
-            "archetypesTitle": "Os 8 Arquétipos e seus Resultados",
-            "archetypesSubtitle": "Avaliação baseada nos modelos Big Five e na Teoria do Apego adulto",
-            "tableHeaders": {
-                "archetype": "Arquétipo",
-                "initialAttraction": "Atração Inicial",
-                "longTermOutcome": "Resultado"
+            "references": {
+                "title": "Evidências Científicas e Referências",
+                "items": [
+                    {
+                        "author": "Zuckerman, 2007",
+                        "color": "blue",
+                        "title": "Busca por Sensações",
+                        "body": "\"Sensation seeking\" (comum no Aventureiro) está intimamente associado a um comportamento sexual e social mais exploratório, dificultando a exclusividade a longo prazo."
+                    },
+                    {
+                        "author": "Roberts et al., 2007; Karney & Bradbury, 1995",
+                        "color": "emerald",
+                        "title": "O Poder da Conscienciosidade",
+                        "body": "Estudos longitudinais comprovam que a conscienciosidade é o preditor de personalidade mais forte e consistente para a satisfação e estabilidade conjugal."
+                    },
+                    {
+                        "author": "Hazan & Shaver, 1987; Mikulincer & Shaver, 2007",
+                        "color": "red",
+                        "title": "Teoria do Apego",
+                        "body": "Apego ansioso e evitativo correlacionam-se fortemente com menor satisfação. Apenas o apego seguro fornece a base para regulação emocional mútua adequada."
+                    },
+                    {
+                        "author": "Paulhus & Williams, 2002; Back et al., 2010",
+                        "color": "amber",
+                        "title": "O Paradoxo da Tríade Obscura",
+                        "body": "Traços narcisistas performam excepcionalmente bem em primeiras impressões devido ao charme superficial, mas resultam em declínio acentuado de satisfação em relações contínuas."
+                    },
+                    {
+                        "author": "Buss, 1989",
+                        "color": "purple",
+                        "title": "Status e Atração",
+                        "body": "Status social e dominância aumentam drasticamente a atratividade percebida (potencial de provedor/proteção), mas por si só não garantem fidelidade ou estabilidade emocional."
+                    }
+                ]
             },
-            "sourcesTitle": "Fontes Científicas",
-            "sourcesSubtitle": "O estudo é embasado por pesquisas acadêmicas publicadas e revisadas por pares.",
             "fullArticleNote": "Leia o artigo completo na aba 'Artigo Científico' para ver todas as 42 referências."
         },
         "article": {

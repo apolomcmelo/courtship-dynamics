@@ -1,60 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import type { ReactNode } from 'react';
+import {
+    Chart,
+    ScatterController,
+    LinearScale,
+    PointElement,
+    BarController,
+    BarElement,
+    CategoryScale,
+    Legend,
+    Tooltip,
+} from 'chart.js';
 import { useTranslation } from './i18n';
-import { ARCHETYPES } from './data/archetypes';
 // The ?raw suffix (provided by Vite) imports the file as a plain string at build time.
 // The path goes 3 levels up from src/ to the repo root, then into research/docs/.
 import researchContent from '../../../research/docs/research.md?raw';
+
+Chart.register(ScatterController, LinearScale, PointElement, BarController, BarElement, CategoryScale, Legend, Tooltip);
 
 type ResearchTab = 'overview' | 'article';
 
 export interface ResearchPageProps {
     onClose: () => void;
 }
-
-// ─── Static display data ──────────────────────────────────────────────────────
-
-type AttractionLevel = 'very_high' | 'high' | 'medium' | 'low';
-type StabilityLevel = 'high' | 'medium' | 'low';
-
-const ARCHETYPE_RATINGS: Record<string, { attraction: AttractionLevel; stability: StabilityLevel }> = {
-    narcissistic_charming: { attraction: 'very_high', stability: 'low' },
-    social_dominant: { attraction: 'very_high', stability: 'medium' },
-    adventurous_charismatic: { attraction: 'high', stability: 'medium' },
-    avoidant_independent: { attraction: 'high', stability: 'medium' },
-    anxious_intense: { attraction: 'medium', stability: 'low' },
-    impulsive_disorganized: { attraction: 'medium', stability: 'low' },
-    secure_balanced: { attraction: 'medium', stability: 'high' },
-    consistent_reliable: { attraction: 'low', stability: 'high' },
-};
-
-// Display order: high attraction → high stability (reveals the paradox visually)
-const ARCHETYPE_DISPLAY_ORDER = [
-    'narcissistic_charming',
-    'social_dominant',
-    'adventurous_charismatic',
-    'avoidant_independent',
-    'anxious_intense',
-    'impulsive_disorganized',
-    'secure_balanced',
-    'consistent_reliable',
-] as const;
-
-const ATTRACTION_STARS: Record<AttractionLevel, string> = {
-    very_high: '★★★★★',
-    high: '★★★★☆',
-    medium: '★★★☆☆',
-    low: '★★☆☆☆',
-};
-
-const STABILITY_COLORS: Record<StabilityLevel, string> = {
-    high: 'text-emerald-400',
-    medium: 'text-amber-400',
-    low: 'text-red-400',
-};
 
 // ─── Markdown component map ───────────────────────────────────────────────────
 
@@ -159,213 +130,331 @@ const md: Record<string, React.ComponentType<any>> = {
 
 // ─── Overview Tab ─────────────────────────────────────────────────────────────
 
-function OverviewTab() {
+const GRID_COLOR = 'rgba(100, 116, 139, 0.2)';
+const TICK_COLOR = '#94a3b8';
+const LEGEND_COLOR = '#cbd5e1';
+
+function ScatterChart() {
     const { t } = useTranslation();
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const chartRef = useRef<Chart | null>(null);
 
-    const findings = [
-        {
-            icon: '⚠️',
-            borderColor: 'border-red-700/40 bg-red-900/10',
-            title: t('research.overview.findings.neuroticism.title'),
-            body: t('research.overview.findings.neuroticism.body'),
-        },
-        {
-            icon: '📈',
-            borderColor: 'border-emerald-700/40 bg-emerald-900/10',
-            title: t('research.overview.findings.conscientiousness.title'),
-            body: t('research.overview.findings.conscientiousness.body'),
-        },
-        {
-            icon: '🪞',
-            borderColor: 'border-amber-700/40 bg-amber-900/10',
-            title: t('research.overview.findings.darkTriad.title'),
-            body: t('research.overview.findings.darkTriad.body'),
-        },
-        {
-            icon: '🔗',
-            borderColor: 'border-blue-700/40 bg-blue-900/10',
-            title: t('research.overview.findings.attachment.title'),
-            body: t('research.overview.findings.attachment.body'),
-        },
-    ];
+    useEffect(() => {
+        if (!canvasRef.current) return;
+        if (chartRef.current) chartRef.current.destroy();
+        chartRef.current = new Chart(canvasRef.current, {
+            type: 'scatter',
+            data: {
+                datasets: [
+                    {
+                        label: t('research.overview.spectrum.legend.instability'),
+                        data: [
+                            { x: 10, y: 95 },
+                            { x: 15, y: 75 },
+                            { x: 20, y: 80 },
+                        ],
+                        backgroundColor: '#EF4444',
+                        pointRadius: 8,
+                        pointHoverRadius: 12,
+                    },
+                    {
+                        label: t('research.overview.spectrum.legend.moderate'),
+                        data: [
+                            { x: 30, y: 90 },
+                            { x: 35, y: 70 },
+                            { x: 50, y: 85 },
+                        ],
+                        backgroundColor: '#3B82F6',
+                        pointRadius: 8,
+                        pointHoverRadius: 12,
+                    },
+                    {
+                        label: t('research.overview.spectrum.legend.stability'),
+                        data: [
+                            { x: 90, y: 50 },
+                            { x: 95, y: 65 },
+                        ],
+                        backgroundColor: '#10B981',
+                        pointRadius: 8,
+                        pointHoverRadius: 12,
+                    },
+                ],
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        backgroundColor: 'rgba(15, 23, 42, 0.95)',
+                        borderColor: 'rgba(51, 65, 85, 0.8)',
+                        borderWidth: 1,
+                        titleColor: '#e2e8f0',
+                        bodyColor: '#94a3b8',
+                    },
+                    legend: { position: 'bottom', labels: { color: LEGEND_COLOR } },
+                },
+                scales: {
+                    x: {
+                        title: { display: true, text: t('research.overview.spectrum.xAxis'), font: { weight: 'bold' }, color: TICK_COLOR },
+                        min: 0, max: 100,
+                        grid: { color: GRID_COLOR },
+                        ticks: { color: TICK_COLOR },
+                    },
+                    y: {
+                        title: { display: true, text: t('research.overview.spectrum.yAxis'), font: { weight: 'bold' }, color: TICK_COLOR },
+                        min: 0, max: 100,
+                        grid: { color: GRID_COLOR },
+                        ticks: { color: TICK_COLOR },
+                    },
+                },
+            },
+        });
+        return () => { chartRef.current?.destroy(); };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-    const sources = [
-        {
-            author: 'Buss, 1989',
-            accentColor: 'hover:border-violet-500 group-hover:text-violet-400',
-            labelColor: 'text-violet-400',
-            title: 'Preferências Sexuais em 37 Culturas',
-            body: 'Documentou a universalidade da hipergamia e a preferência feminina por recursos e status social em parceiros de longo prazo.',
-        },
-        {
-            author: 'Zuckerman, 2007',
-            accentColor: 'hover:border-amber-500',
-            labelColor: 'text-amber-400',
-            title: 'Busca por Sensações',
-            body: '"Sensation seeking" está intimamente associado a comportamento sexual exploratório, dificultando a exclusividade a longo prazo.',
-        },
-        {
-            author: 'Roberts et al., 2007',
-            accentColor: 'hover:border-emerald-500',
-            labelColor: 'text-emerald-400',
-            title: 'Conscienciosidade e Saúde',
-            body: 'Cônjuge consciencioso prediz melhor saúde e maior capacidade física, além de satisfação conjugal persistente ao longo de décadas.',
-        },
-        {
-            author: 'Hazan & Shaver, 1987',
-            accentColor: 'hover:border-blue-500',
-            labelColor: 'text-blue-400',
-            title: 'Teoria do Apego Adulto',
-            body: 'Apenas o apego seguro fornece a base para regulação emocional mútua e intimidade sustentável a longo prazo.',
-        },
-        {
-            author: 'Paulhus & Williams, 2002',
-            accentColor: 'hover:border-red-500',
-            labelColor: 'text-red-400',
-            title: 'O Paradoxo da Tríade Sombria',
-            body: 'Traços narcisistas geram alta atração inicial mas resultam em declínio acentuado de satisfação em relações contínuas.',
-        },
-        {
-            author: 'Karney & Bradbury, 1995',
-            accentColor: 'hover:border-slate-500',
-            labelColor: 'text-slate-400',
-            title: 'Modelo Vulnerabilidade-Estresse-Adaptação',
-            body: 'O comportamento relacional é moderado pelo contexto; traços de personalidade interagem com as circunstâncias da vida.',
-        },
-    ];
+    return <canvas ref={canvasRef} />;
+}
+
+function BarChart() {
+    const { t, tRaw } = useTranslation();
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const chartRef = useRef<Chart | null>(null);
+
+    useEffect(() => {
+        if (!canvasRef.current) return;
+        if (chartRef.current) chartRef.current.destroy();
+        const labels = tRaw('research.overview.psychology.traitLabels') as string[];
+        chartRef.current = new Chart(canvasRef.current, {
+            type: 'bar',
+            data: {
+                labels,
+                datasets: [
+                    {
+                        label: t('research.overview.psychology.stableLabel'),
+                        data: [85, 20, 45, 55],
+                        backgroundColor: '#10B981',
+                        borderRadius: 4,
+                    },
+                    {
+                        label: t('research.overview.psychology.unstableLabel'),
+                        data: [25, 85, 75, 80],
+                        backgroundColor: '#EF4444',
+                        borderRadius: 4,
+                    },
+                ],
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        backgroundColor: 'rgba(15, 23, 42, 0.95)',
+                        borderColor: 'rgba(51, 65, 85, 0.8)',
+                        borderWidth: 1,
+                        titleColor: '#e2e8f0',
+                        bodyColor: '#94a3b8',
+                    },
+                    legend: { labels: { color: LEGEND_COLOR } },
+                },
+                scales: {
+                    x: { grid: { color: GRID_COLOR }, ticks: { color: TICK_COLOR } },
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: { display: true, text: t('research.overview.psychology.yAxis'), color: TICK_COLOR },
+                        grid: { color: GRID_COLOR },
+                        ticks: { color: TICK_COLOR },
+                    },
+                },
+            },
+        });
+        return () => { chartRef.current?.destroy(); };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    return <canvas ref={canvasRef} />;
+}
+
+type ArchetypeRow = {
+    name: string;
+    behaviors: string;
+    perception: string;
+    outcome: string;
+    perceptionHighlight: boolean;
+    outcomeColor: 'red' | 'emerald' | 'amber';
+    highlight?: boolean;
+};
+
+type ReferenceItem = {
+    author: string;
+    color: 'blue' | 'emerald' | 'red' | 'amber' | 'purple';
+    title: string;
+    body: string;
+};
+
+const OUTCOME_COLORS: Record<string, string> = {
+    red: 'text-red-400',
+    emerald: 'text-emerald-400 font-bold',
+    amber: 'text-amber-400',
+};
+
+const REF_BORDER_COLORS: Record<string, string> = {
+    blue: 'hover:border-blue-500/50',
+    emerald: 'hover:border-emerald-500/50',
+    red: 'hover:border-red-500/50',
+    amber: 'hover:border-amber-500/50',
+    purple: 'hover:border-purple-500/50',
+};
+
+const REF_LABEL_COLORS: Record<string, string> = {
+    blue: 'text-blue-400',
+    emerald: 'text-emerald-400',
+    red: 'text-red-400',
+    amber: 'text-amber-400',
+    purple: 'text-purple-400',
+};
+
+function OverviewTab() {
+    const { t, tRaw } = useTranslation();
+    const archetypes = tRaw('research.overview.structure.archetypes') as ArchetypeRow[];
+    const references = tRaw('research.overview.references.items') as ReferenceItem[];
 
     return (
-        <div className="max-w-4xl mx-auto px-4 py-12 space-y-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+
             {/* Hero */}
-            <div className="text-center space-y-5">
-                <span className="inline-block py-1 px-3 rounded-full bg-blue-500/20 text-blue-300 text-xs font-semibold tracking-widest border border-blue-500/30 uppercase">
-                    {t('research.overview.badge')}
-                </span>
-                <h1 className="text-3xl md:text-4xl font-extrabold gradient-text leading-tight">
-                    {t('research.overview.heroTitle')}
-                </h1>
-                <p className="text-slate-400 max-w-2xl mx-auto leading-relaxed text-base">
-                    {t('research.overview.heroSubtitle')}
-                </p>
-            </div>
-
-            {/* Key stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {[
-                    { value: '37', label: 'culturas estudadas por Buss' },
-                    { value: '45', label: 'anos de estudos longitudinais' },
-                    { value: '8', label: 'arquétipos comportamentais' },
-                    { value: '50+', label: 'nações com dados Big Five' },
-                ].map((stat) => (
-                    <div key={stat.label} className="glass-card p-4 text-center space-y-1">
-                        <div className="text-3xl font-extrabold gradient-text">{stat.value}</div>
-                        <div className="text-xs text-slate-500 leading-tight">{stat.label}</div>
-                    </div>
-                ))}
-            </div>
-
-            {/* Key Findings */}
-            <div className="space-y-4">
-                <h2 className="text-xl font-bold text-slate-100">
-                    {t('research.overview.findingsTitle')}
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {findings.map((f) => (
-                        <div
-                            key={f.title}
-                            className={`rounded-xl border p-5 space-y-2 ${f.borderColor}`}
-                        >
-                            <div className="flex items-start gap-2.5">
-                                <span className="text-xl flex-shrink-0">{f.icon}</span>
-                                <h3 className="font-semibold text-slate-200 text-sm leading-snug">{f.title}</h3>
-                            </div>
-                            <p className="text-sm text-slate-400 leading-relaxed pl-8">{f.body}</p>
-                        </div>
-                    ))}
+            <div className="text-center relative overflow-hidden py-10">
+                <div className="absolute inset-0 pointer-events-none">
+                    <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
+                    <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl" />
                 </div>
-            </div>
-
-            {/* Archetype table — ordered from high attraction → high stability to reveal the paradox */}
-            <div className="space-y-4">
-                <div>
-                    <h2 className="text-xl font-bold text-slate-100">
-                        {t('research.overview.archetypesTitle')}
-                    </h2>
-                    <p className="text-sm text-slate-500 mt-1">
-                        {t('research.overview.archetypesSubtitle')}
+                <div className="relative">
+                    <span className="inline-block py-1 px-3 rounded-full bg-blue-500/20 text-blue-300 text-sm font-semibold tracking-wider mb-4 border border-blue-500/30">
+                        {t('research.overview.badge')}
+                    </span>
+                    <h1 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                        <span className="gradient-text">{t('research.overview.heroTitle').split('vs.')[0]}vs.</span>{' '}
+                        <span className="text-amber-400">Estabilidade</span>
+                    </h1>
+                    <p className="text-lg text-slate-400 max-w-3xl mx-auto">
+                        {t('research.overview.heroSubtitle')}
                     </p>
                 </div>
-                <div className="overflow-x-auto rounded-xl border border-slate-700/50">
-                    <table className="w-full text-sm">
-                        <thead className="bg-slate-800/80">
-                            <tr>
-                                <th className="p-4 text-left font-semibold text-slate-300">
-                                    {t('research.overview.tableHeaders.archetype')}
-                                </th>
-                                <th className="p-4 text-center font-semibold text-slate-300 whitespace-nowrap">
-                                    {t('research.overview.tableHeaders.initialAttraction')}
-                                </th>
-                                <th className="p-4 text-left font-semibold text-slate-300 whitespace-nowrap">
-                                    {t('research.overview.tableHeaders.longTermOutcome')}
-                                </th>
+            </div>
+
+            {/* Section 1 — Scatter chart */}
+            <section>
+                <div className="mb-8 text-center max-w-3xl mx-auto">
+                    <h2 className="text-3xl font-bold text-slate-100 mb-4">{t('research.overview.spectrum.title')}</h2>
+                    <p className="text-slate-400 text-lg">{t('research.overview.spectrum.description')}</p>
+                </div>
+                <div className="glass-card p-6">
+                    <div className="relative w-full max-w-3xl mx-auto h-80 md:h-96">
+                        <ScatterChart />
+                    </div>
+                    <div className="mt-4 flex justify-center flex-wrap gap-6 text-sm text-slate-400">
+                        {(['instability', 'moderate', 'stability'] as const).map((key) => (
+                            <div key={key} className="flex items-center gap-2">
+                                <span className={`w-3 h-3 rounded-full flex-shrink-0 ${key === 'instability' ? 'bg-red-500' : key === 'moderate' ? 'bg-blue-500' : 'bg-emerald-500'}`} />
+                                {t(`research.overview.spectrum.legend.${key}`)}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Section 2 — Archetype table */}
+            <section>
+                <div className="mb-8">
+                    <h2 className="text-3xl font-bold text-slate-100 mb-4">{t('research.overview.structure.title')}</h2>
+                    <p className="text-slate-400 text-lg">{t('research.overview.structure.description')}</p>
+                </div>
+                <div className="overflow-x-auto rounded-2xl border border-slate-700/50">
+                    <table className="w-full text-left border-collapse">
+                        <thead>
+                            <tr className="bg-slate-800/80 border-b border-slate-700">
+                                <th className="p-5 font-semibold text-slate-300">{t('research.overview.structure.headers.archetype')}</th>
+                                <th className="p-5 font-semibold text-slate-300">{t('research.overview.structure.headers.behaviors')}</th>
+                                <th className="p-5 font-semibold text-slate-300">{t('research.overview.structure.headers.perception')}</th>
+                                <th className="p-5 font-semibold text-slate-300">{t('research.overview.structure.headers.outcome')}</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-slate-800">
-                            {ARCHETYPE_DISPLAY_ORDER.map((id) => {
-                                const archetype = ARCHETYPES.find((a) => a.id === id)!;
-                                const rating = ARCHETYPE_RATINGS[id];
-                                return (
-                                    <tr key={id} className="hover:bg-slate-800/30 transition-colors">
-                                        <td className="p-4">
-                                            <div className="flex items-center gap-3">
-                                                <div
-                                                    className={`w-1.5 h-8 rounded-full bg-gradient-to-b flex-shrink-0 ${archetype.gradientClass}`}
-                                                />
-                                                <span className="font-medium text-slate-200">
-                                                    {t(archetype.nameKey)}
-                                                </span>
-                                            </div>
-                                        </td>
-                                        <td className="p-4 text-center text-amber-400 tracking-tight text-xs font-mono">
-                                            {ATTRACTION_STARS[rating.attraction]}
-                                        </td>
-                                        <td className={`p-4 text-sm ${STABILITY_COLORS[rating.stability]}`}>
-                                            {t(archetype.shortOutcomeKey)}
-                                        </td>
-                                    </tr>
-                                );
-                            })}
+                        <tbody className="divide-y divide-slate-800 text-slate-400">
+                            {archetypes.map((row) => (
+                                <tr
+                                    key={row.name}
+                                    className={`hover:bg-slate-800/30 transition-colors${row.highlight ? ' bg-emerald-950/20' : ''}`}
+                                >
+                                    <td className="p-5 font-bold text-slate-200">{row.name}</td>
+                                    <td className="p-5">{row.behaviors}</td>
+                                    <td className="p-5">
+                                        {row.perceptionHighlight
+                                            ? <span className="text-emerald-400 font-medium">{row.perception}</span>
+                                            : <span className={row.highlight ? 'text-slate-500' : ''}>{row.perception}</span>
+                                        }
+                                    </td>
+                                    <td className={`p-5 ${OUTCOME_COLORS[row.outcomeColor] ?? 'text-slate-400'}`}>{row.outcome}</td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </section>
 
-            {/* Sources */}
-            <div className="space-y-4">
-                <div>
-                    <h2 className="text-xl font-bold text-slate-100">
-                        {t('research.overview.sourcesTitle')}
-                    </h2>
-                    <p className="text-sm text-slate-500 mt-1">
-                        {t('research.overview.sourcesSubtitle')}
-                    </p>
+            {/* Section 3 — Psychology */}
+            <section>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 className="text-3xl font-bold text-slate-100 mb-4">{t('research.overview.psychology.title')}</h2>
+                        <p className="text-slate-400 text-lg mb-6">
+                            {t('research.overview.psychology.description').split(/(Extroversão|Conscienciosidade \(Conscientiousness\)|Neuroticismo)/).map((part, i) =>
+                                ['Extroversão', 'Conscienciosidade (Conscientiousness)', 'Neuroticismo'].includes(part)
+                                    ? <strong key={i} className="text-slate-200">{part}</strong>
+                                    : part
+                            )}
+                        </p>
+                        <div className="space-y-4">
+                            <div className="glass-card p-4 flex items-start gap-4">
+                                <div className="text-2xl flex-shrink-0 select-none">📈</div>
+                                <div>
+                                    <h4 className="font-bold text-slate-200">{t('research.overview.psychology.cards.conscientiousness.title')}</h4>
+                                    <p className="text-sm text-slate-400">{t('research.overview.psychology.cards.conscientiousness.body')}</p>
+                                </div>
+                            </div>
+                            <div className="glass-card p-4 flex items-start gap-4">
+                                <div className="text-2xl flex-shrink-0 select-none">⚠️</div>
+                                <div>
+                                    <h4 className="font-bold text-slate-200">{t('research.overview.psychology.cards.neuroticism.title')}</h4>
+                                    <p className="text-sm text-slate-400">{t('research.overview.psychology.cards.neuroticism.body')}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="glass-card p-6">
+                        <h3 className="text-center font-bold text-slate-300 mb-4">{t('research.overview.psychology.chartTitle')}</h3>
+                        <div className="relative h-72 md:h-80">
+                            <BarChart />
+                        </div>
+                    </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {sources.map((source) => (
+            </section>
+
+            {/* Section 4 — References */}
+            <section className="pb-8">
+                <h2 className="text-3xl font-bold text-slate-100 mb-10 text-center">{t('research.overview.references.title')}</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {references.map((ref) => (
                         <div
-                            key={source.author}
-                            className={`bg-slate-900/60 border border-slate-700/50 rounded-xl p-5 transition-colors ${source.accentColor} space-y-2`}
+                            key={ref.author}
+                            className={`glass-card p-6 transition-colors ${REF_BORDER_COLORS[ref.color] ?? ''}`}
                         >
-                            <div className={`font-mono text-xs ${source.labelColor}`}>{source.author}</div>
-                            <h4 className="font-semibold text-slate-200 text-sm leading-snug">{source.title}</h4>
-                            <p className="text-xs text-slate-500 leading-relaxed">{source.body}</p>
+                            <div className={`mb-2 font-mono text-sm ${REF_LABEL_COLORS[ref.color] ?? 'text-slate-400'}`}>{ref.author}</div>
+                            <h4 className="font-bold text-slate-200 mb-2">{ref.title}</h4>
+                            <p className="text-sm text-slate-400">{ref.body}</p>
                         </div>
                     ))}
                 </div>
-                <p className="text-xs text-slate-600 text-center pt-2">
-                    {t('research.overview.fullArticleNote')}
-                </p>
-            </div>
+                <p className="text-xs text-slate-600 text-center mt-8">{t('research.overview.fullArticleNote')}</p>
+            </section>
         </div>
     );
 }
