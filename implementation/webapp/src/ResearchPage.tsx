@@ -128,9 +128,26 @@ const md: Record<string, React.ComponentType<any>> = {
         </blockquote>
     ),
     hr: () => <hr className="border-slate-800 my-8" />,
-    sup: ({ children }: { children?: ReactNode }) => (
-        <sup className="text-blue-400 text-xs align-super ml-0.5 leading-none">{children}</sup>
-    ),
+    sup: ({ children }: { children?: ReactNode }) => {
+        const num = String(children).trim();
+        if (!/^\d+$/.test(num)) {
+            return <sup className="text-blue-400 text-xs align-super ml-0.5 leading-none">{children}</sup>;
+        }
+        return (
+            <sup className="text-xs align-super ml-0.5 leading-none">
+                <a
+                    href={`#fn-${num}`}
+                    onClick={(e: React.MouseEvent) => {
+                        e.preventDefault();
+                        document.getElementById(`fn-${num}`)?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="text-blue-400 hover:text-blue-300 transition-colors cursor-pointer"
+                >
+                    {num}
+                </a>
+            </sup>
+        );
+    },
     // Replace unresolvable Google Docs image references gracefully
     img: () => <span className="text-slate-600 italic text-xs">[fórmula]</span>,
     code: ({ children }: { children?: ReactNode }) => (
@@ -358,8 +375,22 @@ function OverviewTab() {
 function ArticleTab({ content }: { content: string }) {
     const { t } = useTranslation();
 
-    // Clean up inline image references that are Google Docs export artefacts
-    const processedContent = content.replace(/!\[\]\[image\d+\]/g, '_[fórmula]_');
+    // Clean up inline image references and inject anchor IDs into the references section
+    const processedContent = (() => {
+        let c = content.replace(/!\[\]\[image\d+\]/g, '_[fórmula]_');
+        const refMarker = '#### **Referências citadas**';
+        const refIdx = c.indexOf(refMarker);
+        if (refIdx !== -1) {
+            const before = c.slice(0, refIdx + refMarker.length);
+            const after = c.slice(refIdx + refMarker.length);
+            const withAnchors = after.replace(
+                /^(\d+)\. /gm,
+                (_, n) => `${n}. <span id="fn-${n}"></span>`
+            );
+            c = before + withAnchors;
+        }
+        return c;
+    })();
 
     return (
         <div className="max-w-3xl mx-auto px-4 py-8 pb-20">
@@ -411,8 +442,8 @@ export function ResearchPage({ onClose }: ResearchPageProps) {
                             <button
                                 onClick={() => setActiveTab('overview')}
                                 className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'overview'
-                                        ? 'bg-slate-700 text-white shadow-sm'
-                                        : 'text-slate-400 hover:text-slate-200'
+                                    ? 'bg-slate-700 text-white shadow-sm'
+                                    : 'text-slate-400 hover:text-slate-200'
                                     }`}
                             >
                                 {t('research.tabs.overview')}
@@ -420,8 +451,8 @@ export function ResearchPage({ onClose }: ResearchPageProps) {
                             <button
                                 onClick={() => setActiveTab('article')}
                                 className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all whitespace-nowrap ${activeTab === 'article'
-                                        ? 'bg-slate-700 text-white shadow-sm'
-                                        : 'text-slate-400 hover:text-slate-200'
+                                    ? 'bg-slate-700 text-white shadow-sm'
+                                    : 'text-slate-400 hover:text-slate-200'
                                     }`}
                             >
                                 {t('research.tabs.article')}
