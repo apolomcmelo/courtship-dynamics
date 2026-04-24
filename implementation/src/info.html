@@ -8,9 +8,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { slate: { 950: "#020617" } }
+                }
+            }
+        }
+    </script>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: "Inter", sans-serif;
+            background-color: #020617;
         }
 
         .chart-container {
@@ -25,72 +35,92 @@
 
         @media (max-width: 768px) {
             .chart-container {
-                height: 320px;
+                height: 300px;
             }
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(15, 23, 42, 0.80);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(226, 232, 240, 0.8);
+            border: 1px solid rgba(51, 65, 85, 0.6);
+            border-radius: 1rem;
         }
 
         .gradient-text {
-            background: linear-gradient(to right, #2563EB, #8B5CF6);
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 
-<body class="bg-slate-50 text-slate-800">
+<body class="text-slate-300 antialiased">
 
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="bg-slate-900/95 backdrop-blur-sm border-b border-slate-800/60 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex-shrink-0 flex items-center gap-2">
                     <span class="text-2xl">🧠</span>
-                    <span class="font-bold text-xl text-slate-900">Psicologia Relacional</span>
+                    <span class="font-bold text-lg text-slate-100">Psicologia Relacional</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#visao-geral" class="text-slate-600 hover:text-blue-600 font-medium">Visão Geral</a>
-                    <a href="#tabela-comparativa" class="text-slate-600 hover:text-blue-600 font-medium">Tabela
+                    <a href="#visao-geral"
+                        class="text-slate-400 hover:text-blue-400 font-medium text-sm transition-colors">Visão Geral</a>
+                    <a href="#tabela-comparativa"
+                        class="text-slate-400 hover:text-blue-400 font-medium text-sm transition-colors">Tabela
                         Analítica</a>
-                    <a href="#analise-psicologica" class="text-slate-600 hover:text-blue-600 font-medium">Traços
+                    <a href="#analise-psicologica"
+                        class="text-slate-400 hover:text-blue-400 font-medium text-sm transition-colors">Traços
                         Psicológicos</a>
+                    <a href="#referencias"
+                        class="text-slate-400 hover:text-blue-400 font-medium text-sm transition-colors">Referências</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <header class="bg-slate-900 text-white py-20 px-4">
-        <div class="max-w-5xl mx-auto text-center">
+    <header class="pt-24 pb-20 px-4 text-center relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/3 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/3 right-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl"></div>
+        </div>
+        <div class="relative max-w-5xl mx-auto">
             <span
-                class="inline-block py-1 px-3 rounded-full bg-blue-500/20 text-blue-300 text-sm font-semibold tracking-wider mb-4 border border-blue-500/30">ESTUDO
-                COMPORTAMENTAL</span>
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">O Paradoxo da Atração vs. <span
-                    class="text-amber-400">Estabilidade</span></h1>
-            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-10">Uma análise baseada em evidências sobre
-                os 8 arquétipos masculinos, explorando como os traços de personalidade que geram atração inicial
-                frequentemente divergem daqueles necessários para a satisfação conjugal a longo prazo.</p>
+                class="inline-block py-1 px-3 rounded-full bg-blue-500/20 text-blue-300 text-xs font-semibold tracking-widest mb-5 border border-blue-500/30 uppercase">
+                Estudo Comportamental
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                <span class="gradient-text">O Paradoxo da Atração</span><br>
+                <span class="text-slate-100">vs. Estabilidade</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                Uma análise baseada em evidências sobre os 8 arquétipos masculinos, explorando como os traços de
+                personalidade que geram atração inicial frequentemente divergem daqueles necessários para a satisfação
+                conjugal a longo prazo.
+            </p>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 space-y-24">
 
-        <section id="visao-geral">
-            <div class="mb-8 text-center max-w-3xl mx-auto">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">O Espectro do Comportamento Masculino</h2>
-                <p class="text-slate-600 text-lg">A literatura científica revela um padrão claro: comportamentos ligados
-                    à busca de novidade (Sensation Seeking) e dominância geram alta atração inicial, mas frequentemente
-                    falham em sustentar intimidade emocional. O gráfico abaixo ilustra a relação inversa entre excitação
-                    inicial e durabilidade relacional.</p>
+        <section id="visao-geral" class="scroll-mt-20">
+            <div class="mb-10 text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-slate-100 mb-4">O Espectro do Comportamento Masculino</h2>
+                <p class="text-slate-400 text-lg leading-relaxed">
+                    A literatura científica revela um padrão claro: comportamentos ligados à busca de novidade
+                    (Sensation Seeking) e dominância geram alta atração inicial, mas frequentemente falham em sustentar
+                    intimidade emocional. O gráfico abaixo ilustra a relação inversa entre excitação inicial e
+                    durabilidade relacional.
+                </p>
             </div>
-            <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100">
-                <div class="chart-container">
-                    <canvas id="scatterChart"></canvas>
-                </div>
-                <div class="mt-4 flex justify-center gap-6 text-sm text-slate-500">
+            <div class="glass-card p-6">
+                <div class="chart-container"><canvas id="scatterChart"></canvas></div>
+                <div class="mt-6 flex flex-wrap justify-center gap-6 text-sm text-slate-400">
                     <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-red-500"></span> Alta
                         Instabilidade</div>
                     <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-blue-500"></span> Risco
@@ -103,81 +133,72 @@
 
         <section id="tabela-comparativa" class="scroll-mt-20">
             <div class="mb-8">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">Análise Estrutural dos Arquétipos</h2>
-                <p class="text-slate-600 text-lg">Avaliando de forma crítica os comportamentos observáveis e seus
+                <h2 class="text-3xl font-bold text-slate-100 mb-3">Análise Estrutural dos Arquétipos</h2>
+                <p class="text-slate-400 text-lg">Avaliando de forma crítica os comportamentos observáveis e seus
                     resultados tendenciais baseados na teoria do apego e no modelo Big Five.</p>
             </div>
-            <div class="overflow-x-auto bg-white rounded-2xl shadow-lg border border-slate-100">
+            <div class="overflow-x-auto rounded-2xl border border-slate-700/50">
                 <table class="w-full text-left border-collapse">
                     <thead>
-                        <tr class="bg-slate-50 border-b border-slate-200">
-                            <th class="p-5 font-semibold text-slate-700">Arquétipo</th>
-                            <th class="p-5 font-semibold text-slate-700">Comportamentos Principais</th>
-                            <th class="p-5 font-semibold text-slate-700">Percepção Inicial</th>
-                            <th class="p-5 font-semibold text-slate-700">Resultado Relacional (Longo Prazo)</th>
+                        <tr class="bg-slate-800/80 border-b border-slate-700">
+                            <th class="p-5 font-semibold text-slate-300">Arquétipo</th>
+                            <th class="p-5 font-semibold text-slate-300">Comportamentos Principais</th>
+                            <th class="p-5 font-semibold text-slate-300">Percepção Inicial</th>
+                            <th class="p-5 font-semibold text-slate-300">Resultado (Longo Prazo)</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-100 text-slate-600">
-                        <tr class="hover:bg-slate-50 transition-colors">
-                            <td class="p-5 font-bold text-slate-900 flex items-center gap-2">🌪️ O Aventureiro
-                                Carismático</td>
+                    <tbody class="divide-y divide-slate-800 text-slate-400">
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="p-5 font-bold text-slate-200">🌪️ Aventureiro Carismático</td>
                             <td class="p-5">Sociável, espontâneo, busca constante por estímulos e aversão à rotina.</td>
-                            <td class="p-5"><span class="text-emerald-600 font-medium">Muito Atraente</span>, divertido,
-                                vida leve.</td>
-                            <td class="p-5 text-red-600 font-medium">Baixa estabilidade. Tendência a relações curtas.
+                            <td class="p-5 text-emerald-400 font-medium">Muito Atraente — divertido, vida leve.</td>
+                            <td class="p-5 text-red-400 font-medium">Baixa estabilidade. Tendência a relações curtas.
                             </td>
                         </tr>
-                        <tr class="hover:bg-slate-50 transition-colors bg-emerald-50/30">
-                            <td class="p-5 font-bold text-slate-900 flex items-center gap-2">🛡️ O Consistente Confiável
-                            </td>
+                        <tr class="hover:bg-slate-800/30 transition-colors bg-emerald-950/20">
+                            <td class="p-5 font-bold text-slate-200">🛡️ Consistente Confiável</td>
                             <td class="p-5">Previsível, responsável, cumpre promessas e foca no longo prazo.</td>
                             <td class="p-5 text-slate-500">Menos excitante, percebido como "seguro".</td>
-                            <td class="p-5 text-emerald-600 font-bold">Maior satisfação, duração e estabilidade.</td>
+                            <td class="p-5 text-emerald-400 font-bold">Maior satisfação, duração e estabilidade.</td>
                         </tr>
-                        <tr class="hover:bg-slate-50 transition-colors">
-                            <td class="p-5 font-bold text-slate-900 flex items-center gap-2">⚡ O Ansioso Intenso</td>
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="p-5 font-bold text-slate-200">⚡ Ansioso Intenso</td>
                             <td class="p-5">Presente em excesso, busca validação constante, intensidade emocional alta.
                             </td>
                             <td class="p-5">Envolvente no início, sufocante depois.</td>
-                            <td class="p-5 text-red-600 font-medium">Alta instabilidade e conflitos.</td>
+                            <td class="p-5 text-red-400 font-medium">Alta instabilidade e conflitos crônicos.</td>
                         </tr>
-                        <tr class="hover:bg-slate-50 transition-colors">
-                            <td class="p-5 font-bold text-slate-900 flex items-center gap-2">🧊 O Evitativo Independente
-                            </td>
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="p-5 font-bold text-slate-200">🧊 Evitativo Independente</td>
                             <td class="p-5">Distante, evita vulnerabilidade, valoriza extrema autonomia.</td>
                             <td class="p-5">Misterioso, "difícil de conquistar".</td>
-                            <td class="p-5 text-amber-600 font-medium">Baixa intimidade emocional, relações
+                            <td class="p-5 text-amber-400 font-medium">Baixa intimidade emocional, relações
                                 superficiais.</td>
                         </tr>
-                        <tr class="hover:bg-slate-50 transition-colors">
-                            <td class="p-5 font-bold text-slate-900 flex items-center gap-2">👑 O Social Dominante</td>
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="p-5 font-bold text-slate-200">👑 Social Dominante</td>
                             <td class="p-5">Confiante, assertivo, lidera interações, alto capital social.</td>
-                            <td class="p-5"><span class="text-emerald-600 font-medium">Muito Atraente</span> no curto
-                                prazo.</td>
-                            <td class="p-5 text-amber-600 font-medium">Variável. Pode estabilizar ou ser exploratório.
+                            <td class="p-5 text-emerald-400 font-medium">Muito Atraente no curto prazo.</td>
+                            <td class="p-5 text-amber-400 font-medium">Variável. Pode estabilizar ou ser exploratório.
                             </td>
                         </tr>
-                        <tr class="hover:bg-slate-50 transition-colors">
-                            <td class="p-5 font-bold text-slate-900 flex items-center gap-2">🎲 O Impulsivo
-                                Desorganizado</td>
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="p-5 font-bold text-slate-200">🎲 Impulsivo Desorganizado</td>
                             <td class="p-5">Inconsistente, quebra promessas, reativo emocionalmente.</td>
                             <td class="p-5">Intenso e imprevisível.</td>
-                            <td class="p-5 text-red-600 font-bold">Altíssima taxa de ruptura e insatisfação.</td>
+                            <td class="p-5 text-red-400 font-bold">Altíssima taxa de ruptura e insatisfação.</td>
                         </tr>
-                        <tr class="hover:bg-slate-50 transition-colors">
-                            <td class="p-5 font-bold text-slate-900 flex items-center gap-2">🪞 O Narcísico Encantador
-                            </td>
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="p-5 font-bold text-slate-200">🪞 Narcísico Encantador</td>
                             <td class="p-5">Charmoso inicial, busca admiração contínua, baixa empatia real.</td>
-                            <td class="p-5"><span class="text-emerald-600 font-bold">Extremamente Atraente</span>
-                                inicialmente.</td>
-                            <td class="p-5 text-red-600 font-bold">Queda drástica de satisfação, toxicidade.</td>
+                            <td class="p-5 text-emerald-400 font-bold">Extremamente Atraente inicialmente.</td>
+                            <td class="p-5 text-red-400 font-bold">Queda drástica de satisfação, toxicidade.</td>
                         </tr>
-                        <tr class="hover:bg-slate-50 transition-colors bg-emerald-50/30">
-                            <td class="p-5 font-bold text-slate-900 flex items-center gap-2">⚖️ O Seguro Equilibrado
-                            </td>
+                        <tr class="hover:bg-slate-800/30 transition-colors bg-emerald-950/20">
+                            <td class="p-5 font-bold text-slate-200">⚖️ Seguro Equilibrado</td>
                             <td class="p-5">Consistente, emocionalmente disponível, comunicação transparente.</td>
                             <td class="p-5 text-slate-500">Percebido como "normal", sem picos dramáticos.</td>
-                            <td class="p-5 text-emerald-600 font-bold">Maior probabilidade de relação saudável e rica.
+                            <td class="p-5 text-emerald-400 font-bold">Maior probabilidade de relação saudável e rica.
                             </td>
                         </tr>
                     </tbody>
@@ -187,240 +208,155 @@
 
         <section id="analise-psicologica" class="scroll-mt-20">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Os Motores Ocultos da Personalidade</h2>
-                    <p class="text-slate-600 text-lg mb-6">A análise científica utilizando o modelo Big Five (Cinco
-                        Grandes Fatores) e a Teoria do Apego desmistifica o sucesso relacional. Enquanto a
-                        <strong>Extroversão</strong> impulsiona a atração inicial, é a <strong>Conscienciosidade
-                            (Conscientiousness)</strong> aliada ao baixo <strong>Neuroticismo</strong> que predizem a
-                        longevidade conjugal.
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-slate-100">Os Motores Ocultos da Personalidade</h2>
+                    <p class="text-slate-400 text-lg leading-relaxed">
+                        A análise científica utilizando o modelo <strong class="text-slate-200">Big Five</strong> e a
+                        <strong class="text-slate-200">Teoria do Apego</strong> desmistifica o sucesso relacional.
+                        Enquanto a <strong class="text-slate-200">Extroversão</strong> impulsiona a atração inicial,
+                        é a <strong class="text-slate-200">Conscienciosidade</strong> aliada ao baixo
+                        <strong class="text-slate-200">Neuroticismo</strong> que predizem a longevidade conjugal.
                     </p>
                     <div class="space-y-4">
-                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
-                            <div class="text-2xl">📈</div>
+                        <div class="glass-card p-4 flex items-start gap-4">
+                            <div class="text-2xl mt-0.5">📈</div>
                             <div>
-                                <h4 class="font-bold text-slate-800">Conscienciosidade (O Fator de Sucesso)</h4>
-                                <p class="text-sm text-slate-600">Indivíduos que pontuam alto neste traço (Consistente,
-                                    Seguro) cumprem acordos, administram impulsos e trabalham na manutenção da relação.
-                                </p>
+                                <h4 class="font-bold text-slate-200 mb-1">Conscienciosidade — O Fator de Sucesso</h4>
+                                <p class="text-sm text-slate-400 leading-relaxed">Indivíduos que pontuam alto neste
+                                    traço cumprem acordos, administram impulsos e trabalham ativamente na manutenção da
+                                    relação.</p>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
-                            <div class="text-2xl">⚠️</div>
+                        <div class="glass-card p-4 flex items-start gap-4">
+                            <div class="text-2xl mt-0.5">⚠️</div>
                             <div>
-                                <h4 class="font-bold text-slate-800">Neuroticismo (O Fator de Risco)</h4>
-                                <p class="text-sm text-slate-600">A instabilidade emocional (Ansioso, Impulsivo) gera
-                                    atrito constante, amplificando conflitos menores e desgastando a confiança mútua.
-                                </p>
+                                <h4 class="font-bold text-slate-200 mb-1">Neuroticismo — O Fator de Risco</h4>
+                                <p class="text-sm text-slate-400 leading-relaxed">A instabilidade emocional gera atrito
+                                    constante, amplificando conflitos menores e desgastando a confiança mútua ao longo
+                                    do tempo.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100">
-                    <h3 class="text-center font-bold text-slate-700 mb-4">Comparativo de Traços: Estáveis vs. Instáveis
-                    </h3>
-                    <div class="chart-container">
-                        <canvas id="barChart"></canvas>
-                    </div>
+                <div class="glass-card p-6">
+                    <h3 class="text-center font-bold text-slate-300 mb-5 text-sm uppercase tracking-wider">Comparativo
+                        de Traços — Estáveis vs. Instáveis</h3>
+                    <div class="chart-container" style="height:320px;"><canvas id="barChart"></canvas></div>
                 </div>
             </div>
         </section>
 
-        <section class="bg-slate-900 text-slate-100 py-16 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 mt-20">
-            <div class="max-w-7xl mx-auto">
-                <h2 class="text-3xl font-bold text-white mb-12 text-center">Evidências Científicas e Referências</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                    <div
-                        class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-blue-500 transition-colors">
-                        <div class="text-blue-400 mb-2 font-mono text-sm">Zuckerman, 2007</div>
-                        <h4 class="font-bold text-white mb-2">Busca por Sensações</h4>
-                        <p class="text-sm text-slate-400">"Sensation seeking" (comum no Aventureiro) está intimamente
-                            associado a um comportamento sexual e social mais exploratório, dificultando a exclusividade
-                            a longo prazo.</p>
+        <section id="referencias" class="scroll-mt-20">
+            <h2 class="text-3xl font-bold text-slate-100 mb-10 text-center">Evidências Científicas e Referências</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div class="glass-card p-6 hover:border-blue-500/50 transition-colors space-y-2">
+                    <div class="text-blue-400 font-mono text-xs">Zuckerman, 2007</div>
+                    <h4 class="font-bold text-slate-200">Busca por Sensações</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">"Sensation seeking" está intimamente associado a
+                        comportamento sexual mais exploratório, dificultando a exclusividade a longo prazo.</p>
+                </div>
+                <div class="glass-card p-6 hover:border-emerald-500/50 transition-colors space-y-2">
+                    <div class="text-emerald-400 font-mono text-xs">Roberts et al., 2007 · Karney &amp; Bradbury, 1995
                     </div>
-
-                    <div
-                        class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-emerald-500 transition-colors">
-                        <div class="text-emerald-400 mb-2 font-mono text-sm">Roberts et al., 2007; Karney & Bradbury,
-                            1995</div>
-                        <h4 class="font-bold text-white mb-2">O Poder da Conscienciosidade</h4>
-                        <p class="text-sm text-slate-400">Estudos longitudinais comprovam que a conscienciosidade é o
-                            preditor de personalidade mais forte e consistente para a satisfação e estabilidade
-                            conjugal.</p>
+                    <h4 class="font-bold text-slate-200">O Poder da Conscienciosidade</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Estudos longitudinais comprovam que a
+                        conscienciosidade é o preditor mais forte e consistente de satisfação e estabilidade conjugal.
+                    </p>
+                </div>
+                <div class="glass-card p-6 hover:border-red-500/50 transition-colors space-y-2">
+                    <div class="text-red-400 font-mono text-xs">Hazan &amp; Shaver, 1987 · Mikulincer &amp; Shaver, 2007
                     </div>
-
-                    <div
-                        class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-red-500 transition-colors">
-                        <div class="text-red-400 mb-2 font-mono text-sm">Hazan & Shaver, 1987; Mikulincer & Shaver, 2007
-                        </div>
-                        <h4 class="font-bold text-white mb-2">Teoria do Apego</h4>
-                        <p class="text-sm text-slate-400">Apego ansioso e evitativo correlacionam-se fortemente com
-                            menor satisfação. Apenas o apego seguro fornece a base para regulação emocional mútua
-                            adequada.</p>
-                    </div>
-
-                    <div
-                        class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-amber-500 transition-colors">
-                        <div class="text-amber-400 mb-2 font-mono text-sm">Paulhus & Williams, 2002; Back et al., 2010
-                        </div>
-                        <h4 class="font-bold text-white mb-2">O Paradoxo da Tríade Obscura</h4>
-                        <p class="text-sm text-slate-400">Traços narcisistas performam excepcionalmente bem em primeiras
-                            impressões devido ao charme superficial, mas resultam em declínio acentuado de satisfação em
-                            relações contínuas.</p>
-                    </div>
-
-                    <div
-                        class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-purple-500 transition-colors">
-                        <div class="text-purple-400 mb-2 font-mono text-sm">Buss, 1989</div>
-                        <h4 class="font-bold text-white mb-2">Status e Atração</h4>
-                        <p class="text-sm text-slate-400">Status social e dominância aumentam drasticamente a
-                            atratividade percebida (potencial de provedor/proteção), mas por si só não garantem
-                            fidelidade ou estabilidade emocional.</p>
-                    </div>
-
+                    <h4 class="font-bold text-slate-200">Teoria do Apego</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Apego ansioso e evitativo correlacionam-se com
+                        menor satisfação. Apenas o apego seguro fornece a base para regulação emocional mútua.</p>
+                </div>
+                <div class="glass-card p-6 hover:border-amber-500/50 transition-colors space-y-2">
+                    <div class="text-amber-400 font-mono text-xs">Paulhus &amp; Williams, 2002 · Back et al., 2010</div>
+                    <h4 class="font-bold text-slate-200">O Paradoxo da Tríade Obscura</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Traços narcísicos performam bem em primeiras
+                        impressões, mas resultam em declínio acentuado de satisfação em relações contínuas.</p>
+                </div>
+                <div class="glass-card p-6 hover:border-violet-500/50 transition-colors space-y-2">
+                    <div class="text-violet-400 font-mono text-xs">Buss, 1989</div>
+                    <h4 class="font-bold text-slate-200">Status e Atração</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Status social e dominância aumentam a atratividade
+                        percebida, mas por si só não garantem fidelidade ou estabilidade emocional.</p>
+                </div>
+                <div class="glass-card p-6 hover:border-slate-400/50 transition-colors space-y-2">
+                    <div class="text-slate-400 font-mono text-xs">Karney &amp; Bradbury, 1995</div>
+                    <h4 class="font-bold text-slate-200">Modelo VSA</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">O Modelo Vulnerabilidade-Estresse-Adaptação
+                        demonstra que o comportamento dos arquétipos é moderado pelo contexto e pelas circunstâncias.
+                    </p>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-sm">
-        <p>Análise de Dados Comportamentais © 2026</p>
+    <footer class="border-t border-slate-800 py-8 text-center text-slate-600 text-sm">
+        <p>Análise de Dados Comportamentais © 2026 — Baseado em pesquisa científica revisada por pares</p>
     </footer>
 
     <script>
+        const GRID = "rgba(100,116,139,0.2)";
+        const TICK = "#94a3b8";
+
         function wrapLabels(labels) {
             return labels.map(function (label) {
                 if (label.length <= 16) return label;
-                var words = label.split(' ');
-                var lines = [];
-                var currentLine = words[0];
+                var words = label.split(" "), lines = [], cur = words[0];
                 for (var i = 1; i < words.length; i++) {
-                    if (currentLine.length + words[i].length + 1 <= 16) {
-                        currentLine += ' ' + words[i];
-                    } else {
-                        lines.push(currentLine);
-                        currentLine = words[i];
-                    }
+                    if (cur.length + words[i].length + 1 <= 16) { cur += " " + words[i]; }
+                    else { lines.push(cur); cur = words[i]; }
                 }
-                lines.push(currentLine);
+                lines.push(cur);
                 return lines;
             });
         }
 
-        var commonTooltipConfig = {
-            tooltip: {
-                callbacks: {
-                    title: function (tooltipItems) {
-                        var item = tooltipItems[0];
-                        var label = item.chart.data.labels[item.dataIndex];
-                        if (Array.isArray(label)) {
-                            return label.join(' ');
-                        } else {
-                            return label;
-                        }
-                    }
-                }
-            }
+        var tooltipDefaults = {
+            backgroundColor: "rgba(15,23,42,0.95)",
+            borderColor: "rgba(51,65,85,0.8)",
+            borderWidth: 1,
+            titleColor: "#e2e8f0",
+            bodyColor: "#94a3b8"
         };
 
-        var scatterCtx = document.getElementById('scatterChart').getContext('2d');
-        new Chart(scatterCtx, {
-            type: 'scatter',
+        new Chart(document.getElementById("scatterChart").getContext("2d"), {
+            type: "scatter",
             data: {
-                datasets: [{
-                    label: 'Alta Instabilidade (Risco)',
-                    data: [
-                        { x: 10, y: 95, label: 'Narcísico Encantador' },
-                        { x: 15, y: 75, label: 'Impulsivo Desorganizado' },
-                        { x: 20, y: 80, label: 'Ansioso Intenso' }
-                    ],
-                    backgroundColor: '#EF4444',
-                    pointRadius: 8,
-                    pointHoverRadius: 12
-                },
-                {
-                    label: 'Estabilidade Variável / Baixa Intimidade',
-                    data: [
-                        { x: 30, y: 90, label: 'Aventureiro Carismático' },
-                        { x: 35, y: 70, label: 'Evitativo Independente' },
-                        { x: 50, y: 85, label: 'Social Dominante' }
-                    ],
-                    backgroundColor: '#3B82F6',
-                    pointRadius: 8,
-                    pointHoverRadius: 12
-                },
-                {
-                    label: 'Alta Estabilidade (Sucesso Longo Prazo)',
-                    data: [
-                        { x: 90, y: 50, label: 'Consistente Confiável' },
-                        { x: 95, y: 65, label: 'Seguro Equilibrado' }
-                    ],
-                    backgroundColor: '#10B981',
-                    pointRadius: 8,
-                    pointHoverRadius: 12
-                }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                plugins: {
-                    tooltip: {
-                        callbacks: {
-                            label: function (context) {
-                                return context.raw.label + ': (Estabilidade: ' + context.raw.x + ', Atração: ' + context.raw.y + ')';
-                            }
-                        }
-                    },
-                    legend: { position: 'bottom' }
-                },
-                scales: {
-                    x: {
-                        title: { display: true, text: 'Estabilidade a Longo Prazo / Satisfação (%)', font: { weight: 'bold' } },
-                        min: 0,
-                        max: 100
-                    },
-                    y: {
-                        title: { display: true, text: 'Nível de Atração e Excitação Inicial (%)', font: { weight: 'bold' } },
-                        min: 0,
-                        max: 100
-                    }
-                }
-            }
-        });
-
-        var rawBarLabels = ['Conscienciosidade', 'Neuroticismo', 'Abertura/Busca Novidade', 'Extroversão'];
-        var barLabels = wrapLabels(rawBarLabels);
-
-        var barCtx = document.getElementById('barChart').getContext('2d');
-        new Chart(barCtx, {
-            type: 'bar',
-            data: {
-                labels: barLabels,
                 datasets: [
-                    {
-                        label: 'Perfis Estáveis (Consistente, Seguro)',
-                        data: [85, 20, 45, 55],
-                        backgroundColor: '#10B981',
-                        borderRadius: 4
-                    },
-                    {
-                        label: 'Perfis Instáveis (Narcísico, Impulsivo, Ansioso)',
-                        data: [25, 85, 75, 80],
-                        backgroundColor: '#EF4444',
-                        borderRadius: 4
-                    }
+                    { label: "Alta Instabilidade", data: [{ x: 10, y: 95, label: "Narcísico Encantador" }, { x: 15, y: 75, label: "Impulsivo Desorganizado" }, { x: 20, y: 80, label: "Ansioso Intenso" }], backgroundColor: "#ef4444", pointRadius: 9, pointHoverRadius: 13 },
+                    { label: "Risco Moderado", data: [{ x: 30, y: 90, label: "Aventureiro Carismático" }, { x: 35, y: 70, label: "Evitativo Independente" }, { x: 50, y: 85, label: "Social Dominante" }], backgroundColor: "#3b82f6", pointRadius: 9, pointHoverRadius: 13 },
+                    { label: "Alta Estabilidade", data: [{ x: 90, y: 50, label: "Consistente Confiável" }, { x: 95, y: 65, label: "Seguro Equilibrado" }], backgroundColor: "#10b981", pointRadius: 9, pointHoverRadius: 13 }
                 ]
             },
             options: {
                 maintainAspectRatio: false,
-                plugins: Object.assign({}, commonTooltipConfig),
+                plugins: { legend: { display: false }, tooltip: { ...tooltipDefaults, callbacks: { label: ctx => ctx.raw.label + " — Estabilidade: " + ctx.raw.x + "%, Atração: " + ctx.raw.y + "%" } } },
                 scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        title: { display: true, text: 'Intensidade do Traço' }
-                    }
+                    x: { title: { display: true, text: "Estabilidade a Longo Prazo / Satisfação (%)", color: TICK, font: { weight: "bold" } }, min: 0, max: 100, grid: { color: GRID }, ticks: { color: TICK } },
+                    y: { title: { display: true, text: "Nível de Atração e Excitação Inicial (%)", color: TICK, font: { weight: "bold" } }, min: 0, max: 100, grid: { color: GRID }, ticks: { color: TICK } }
+                }
+            }
+        });
+
+        new Chart(document.getElementById("barChart").getContext("2d"), {
+            type: "bar",
+            data: {
+                labels: wrapLabels(["Conscienciosidade", "Neuroticismo", "Abertura / Busca de Novidade", "Extroversão"]),
+                datasets: [
+                    { label: "Perfis Estáveis (Consistente, Seguro)", data: [85, 20, 45, 55], backgroundColor: "#10b981", borderRadius: 5 },
+                    { label: "Perfis Instáveis (Narcísico, Impulsivo, Ansioso)", data: [25, 85, 75, 80], backgroundColor: "#ef4444", borderRadius: 5 }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: "#cbd5e1", boxRadius: 4 } }, tooltip: { ...tooltipDefaults, callbacks: { title: items => { var l = items[0].chart.data.labels[items[0].dataIndex]; return Array.isArray(l) ? l.join(" ") : l; } } } },
+                scales: {
+                    x: { grid: { color: GRID }, ticks: { color: TICK } },
+                    y: { beginAtZero: true, max: 100, title: { display: true, text: "Intensidade do Traço", color: TICK }, grid: { color: GRID }, ticks: { color: TICK } }
                 }
             }
         });

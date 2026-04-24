@@ -3,9 +3,10 @@ import { Button } from '../components/Button';
 
 interface IntroPhaseProps {
     onStart: () => void;
+    onOpenResearch?: () => void;
 }
 
-export function IntroPhase({ onStart }: IntroPhaseProps) {
+export function IntroPhase({ onStart, onOpenResearch }: IntroPhaseProps) {
     const { t } = useTranslation();
 
     return (
@@ -57,6 +58,14 @@ export function IntroPhase({ onStart }: IntroPhaseProps) {
                         {t('phases.intro.cta')}
                     </Button>
                     <p className="text-xs text-slate-600">{t('phases.intro.note')}</p>
+                    {onOpenResearch && (
+                        <button
+                            onClick={onOpenResearch}
+                            className="text-xs text-slate-500 hover:text-blue-400 transition-colors w-full text-center pt-1"
+                        >
+                            {t('research.linkLabel')}
+                        </button>
+                    )}
                 </div>
             </div>
         </div>

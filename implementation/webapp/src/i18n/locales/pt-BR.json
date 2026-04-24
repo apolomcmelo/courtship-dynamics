@@ -447,5 +447,52 @@
                 "body": "Perfis com essas características tendem a gerar:\n• Baixa intimidade ao longo do tempo\n• Sensação de perseguir alguém que não está totalmente disponível\n• Dificuldade em criar vínculos profundos e duradouros"
             }
         }
+    },
+    "research": {
+        "linkLabel": "Ver base científica →",
+        "scienceLink": "Entender a ciência por trás do resultado →",
+        "close": "Fechar",
+        "tabs": {
+            "overview": "Visão Geral",
+            "article": "Artigo Científico"
+        },
+        "overview": {
+            "badge": "BASE CIENTÍFICA",
+            "heroTitle": "O Paradoxo da Atração vs. Estabilidade",
+            "heroSubtitle": "Uma análise baseada em evidências sobre como os traços de personalidade que geram atração inicial frequentemente divergem daqueles necessários para a satisfação conjugal a longo prazo.",
+            "findingsTitle": "Principais Descobertas",
+            "findings": {
+                "neuroticism": {
+                    "title": "Neuroticismo: o inimigo nº 1 da longevidade",
+                    "body": "A instabilidade emocional é o preditor mais forte de divórcio e insatisfação conjugal, superando todos os outros traços de personalidade."
+                },
+                "conscientiousness": {
+                    "title": "Conscienciosidade prediz décadas de satisfação",
+                    "body": "Estudos longitudinais de até 45 anos confirmam que a conscienciosidade é o preditor mais consistente de estabilidade e bem-estar conjugal."
+                },
+                "darkTriad": {
+                    "title": "O Paradoxo da Tríade Sombria",
+                    "body": "Traços narcisistas geram altíssima atração inicial, mas levam a uma queda acentuada de satisfação à medida que o relacionamento avança."
+                },
+                "attachment": {
+                    "title": "Teoria do Apego: a base emocional",
+                    "body": "Apenas o apego seguro fornece a base para regulação emocional mútua, comunicação eficaz e intimidade sustentável a longo prazo."
+                }
+            },
+            "archetypesTitle": "Os 8 Arquétipos e seus Resultados",
+            "archetypesSubtitle": "Avaliação baseada nos modelos Big Five e na Teoria do Apego adulto",
+            "tableHeaders": {
+                "archetype": "Arquétipo",
+                "initialAttraction": "Atração Inicial",
+                "longTermOutcome": "Resultado"
+            },
+            "sourcesTitle": "Fontes Científicas",
+            "sourcesSubtitle": "O estudo é embasado por pesquisas acadêmicas publicadas e revisadas por pares.",
+            "fullArticleNote": "Leia o artigo completo na aba 'Artigo Científico' para ver todas as 42 referências."
+        },
+        "article": {
+            "intro": "Artigo científico completo com fundamentação teórica e referências acadêmicas.",
+            "warning": "Documento original com linguagem técnica e notas de rodapé numeradas."
+        }
     }
 }

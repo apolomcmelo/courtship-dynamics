@@ -10,6 +10,7 @@ interface DiagnosticMirrorPhaseProps {
     state: AppState;
     onGoToRetest: () => void;
     onSkipRetest: () => void;
+    onOpenResearch?: () => void;
 }
 
 function ArchetypeChip({ archetypeId }: { archetypeId: ArchetypeId }) {
@@ -32,6 +33,7 @@ export function DiagnosticMirrorPhase({
     state,
     onGoToRetest,
     onSkipRetest,
+    onOpenResearch,
 }: DiagnosticMirrorPhaseProps) {
     const { t } = useTranslation();
     const diagnostic = computeDiagnostic(state.userPulse, state.userIdeal);
@@ -137,6 +139,14 @@ export function DiagnosticMirrorPhase({
                     <Button variant="ghost" size="md" fullWidth onClick={onSkipRetest}>
                         {t('phases.diagnosticMirror.skipValidation')}
                     </Button>
+                    {onOpenResearch && (
+                        <button
+                            onClick={onOpenResearch}
+                            className="text-xs text-slate-500 hover:text-blue-400 transition-colors w-full text-center pt-1"
+                        >
+                            {t('research.scienceLink')}
+                        </button>
+                    )}
                 </div>
             </div>
         </div>

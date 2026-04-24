@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { I18nProvider } from './i18n';
 import { useAppState } from './hooks/useAppState';
 import { IntroPhase } from './phases/IntroPhase';
@@ -5,6 +6,7 @@ import { ReactiveGamePhase } from './phases/ReactiveGamePhase';
 import { DeclarativeSurveyPhase } from './phases/DeclarativeSurveyPhase';
 import { DiagnosticMirrorPhase } from './phases/DiagnosticMirrorPhase';
 import { RetestPhase } from './phases/RetestPhase';
+import { ResearchPage } from './ResearchPage';
 
 function AppContent() {
     const {
@@ -17,9 +19,15 @@ function AppContent() {
         submitRetestRanking,
     } = useAppState();
 
+    const [showResearch, setShowResearch] = useState(false);
+    const openResearch = () => setShowResearch(true);
+    const closeResearch = () => setShowResearch(false);
+
     return (
         <>
-            {state.phase === 'INTRO' && <IntroPhase onStart={startGame} />}
+            {state.phase === 'INTRO' && (
+                <IntroPhase onStart={startGame} onOpenResearch={openResearch} />
+            )}
 
             {state.phase === 'REACTIVE_GAME' && (
                 <ReactiveGamePhase state={state} onSubmitRanking={submitScenarioRanking} />
@@ -34,6 +42,7 @@ function AppContent() {
                     state={state}
                     onGoToRetest={goToRetest}
                     onSkipRetest={skipRetest}
+                    onOpenResearch={openResearch}
                 />
             )}
 
@@ -44,6 +53,8 @@ function AppContent() {
                     onFinish={skipRetest}
                 />
             )}
+
+            {showResearch && <ResearchPage onClose={closeResearch} />}
         </>
     );
 }
