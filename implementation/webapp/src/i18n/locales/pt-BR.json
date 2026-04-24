@@ -1,0 +1,451 @@
+{
+    "app": {
+        "title": "Dinâmica de Atração",
+        "tagline": "Descubra seus padrões de atração"
+    },
+    "common": {
+        "next": "Próximo",
+        "back": "Voltar",
+        "start": "Começar",
+        "finish": "Finalizar",
+        "confirm": "Confirmar",
+        "continue": "Continuar",
+        "rankingInstruction": "Clique nos perfis na ordem de sua preferência",
+        "rankingResetHint": "Clique novamente para remover da seleção",
+        "scenarioProgress": "Cenário {{current}} de {{total}}",
+        "questionProgress": "Pergunta {{current}} de {{total}}",
+        "yourRanking": "Sua classificação",
+        "position": "{{position}}º",
+        "submitRanking": "Confirmar Ordem",
+        "selectAll": "Selecione todos os perfis antes de continuar"
+    },
+    "phases": {
+        "intro": {
+            "headline": "Uma experiência diferente.",
+            "body1": "Esta experiência simula situações reais de interação.",
+            "body2": "Responda com base no que você faria, não no que acha correto.",
+            "body3": "Não há respostas certas ou erradas — apenas as suas.",
+            "cta": "Estou pronta",
+            "note": "Seus dados são anônimos e não serão compartilhados."
+        },
+        "reactiveGame": {
+            "title": "Situações do Dia a Dia",
+            "instruction": "Reaja de forma instintiva. Não pense demais — sua primeira resposta é a que importa.",
+            "appearanceLabel": "Aparência",
+            "behaviorLabel": "Comportamento",
+            "signalLabel": "Sinal",
+            "bioLabel": "Bio",
+            "patternLabel": "Padrão",
+            "dynamicLabel": "Dinâmica",
+            "reactionLabel": "Reação"
+        },
+        "declarativeSurvey": {
+            "title": "O Que Você Busca",
+            "instruction": "Agora, pense com calma. Sem pressa. O que você realmente valoriza em um parceiro?",
+            "selectOption": "Selecione uma opção"
+        },
+        "diagnosticMirror": {
+            "title": "Seu Espelho de Atração",
+            "subtitle": "O contraste entre o que você escolheu por instinto e o que você diz valorizar.",
+            "pulseLabel": "Instinto — o que você escolheu",
+            "idealLabel": "Ideal — o que você diz querer",
+            "dissonanceTitle": "Dissonância de Atração Detectada",
+            "dissonanceBody": "Há uma diferença significativa entre seus padrões instintivos e seus valores declarados. Isso é mais comum do que parece.",
+            "topAttractionsTitle": "Suas Maiores Atrações Instintivas",
+            "topIdealsTitle": "O Que Você Diz Valorizar",
+            "consequencesTitle": "Consequência Relacional",
+            "continueToValidation": "Quero me aprofundar",
+            "skipValidation": "Isso é suficiente para mim"
+        },
+        "retest": {
+            "title": "Validação Final",
+            "reflectionTitle": "Sua Reflexão",
+            "explanationPrompt": "Com base no que você viu, como descreveria seu padrão de atração com suas próprias palavras?",
+            "predictionPrompt": "Se você continuar escolhendo esse tipo de perfil, o que tende a acontecer nos relacionamentos?",
+            "explanationPlaceholder": "Escreva aqui sua reflexão...",
+            "predictionPlaceholder": "O que você prevê...",
+            "newScenarioTitle": "Novo Cenário",
+            "newScenarioDescription": "Novas pessoas, novo contexto. Responda de forma instintiva, como antes.",
+            "learnedTitle": "Aprendizado Identificado",
+            "learnedBody": "Suas escolhas neste novo cenário indicam uma mudança de perspectiva. Você demonstrou capacidade de ler sinais comportamentais além da aparência superficial. Este é um passo significativo.",
+            "repeatedTitle": "Padrão Automático",
+            "repeatedBody": "Suas escolhas repetiram o padrão anterior. Isso não é um problema — padrões automáticos são parte da nossa natureza e foram formados ao longo de anos. O primeiro passo é reconhecê-los com clareza.",
+            "finish": "Concluir Experiência",
+            "continueToScenario": "Partir para o novo cenário"
+        }
+    },
+    "scenarios": {
+        "bar": {
+            "title": "Bar com Música ao Vivo",
+            "context": "Você está em um bar com música ao vivo. O ambiente é descontraído — pessoas conversando, rindo, curtindo a noite. Você está com uma bebida na mão, observando o ambiente.",
+            "situation": "Quatro homens demonstram claramente interesse em interagir com você. Todos estão disponíveis e abertos a conversa.",
+            "prompt": "Clique nos perfis na ordem de sua preferência — de quem mais chamou sua atenção a quem menos te interessou.",
+            "characters": {
+                "A": {
+                    "label": "A",
+                    "appearance": "Bem cuidado, estilo moderno, atraente sem exagero",
+                    "behavior": "Interage naturalmente com o ambiente, troca piadas com outros antes de se aproximar de você",
+                    "bodyLanguage": "Relaxado, socialmente fluente, confortável no grupo",
+                    "signal": "Status social validado pelo ambiente"
+                },
+                "B": {
+                    "label": "B",
+                    "appearance": "Cuidado, estilo clássico e agradável",
+                    "behavior": "Se aproxima com calma e diretamente, faz perguntas reflexivas e ouve com atenção",
+                    "bodyLanguage": "Presente, grounded, proximidade respeitosa",
+                    "signal": "Presença emocional e inteligência social"
+                },
+                "C": {
+                    "label": "C",
+                    "appearance": "Casual, expressivo, levemente alternativo mas atraente",
+                    "behavior": "Abre com humor e provocações lúdicas, tenta criar uma interação divertida rapidamente",
+                    "bodyLanguage": "Animado, energético",
+                    "signal": "Espontaneidade e estimulação emocional"
+                },
+                "D": {
+                    "label": "D",
+                    "appearance": "Muito atraente, polido e marcante",
+                    "behavior": "Te foca intensamente desde o início, dá elogios fortes e cria intimidade rapidamente",
+                    "bodyLanguage": "Direto, proximidade levemente intrusiva",
+                    "signal": "Escalada emocional rápida"
+                }
+            }
+        },
+        "instagram": {
+            "title": "Interação Digital",
+            "context": "Você segue algumas pessoas no Instagram depois de ver interesses em comum. Alguns começam a interagir com seu conteúdo.",
+            "situation": "Quatro homens iniciam contato de formas diferentes.",
+            "prompt": "Clique nos perfis na ordem de atenção que você daria — de quem responderia primeiro a quem ignoraria.",
+            "characters": {
+                "A": {
+                    "label": "A",
+                    "appearance": "Estilo de vida ativo, fotos visualmente atraentes",
+                    "behavior": "Interage com energia, introduz assuntos, mas some ocasionalmente sem aviso",
+                    "pattern": "Intenso → Inconsistente",
+                    "signal": "Alta estimulação, baixa previsibilidade"
+                },
+                "B": {
+                    "label": "B",
+                    "appearance": "Fotos naturais, aesthetic acessível e confiável",
+                    "behavior": "Interage de forma consistente, faz perguntas interessantes, constrói fluxo natural",
+                    "pattern": "Estável e envolvente",
+                    "signal": "Estabilidade emocional com inteligência social"
+                },
+                "C": {
+                    "label": "C",
+                    "appearance": "Perfil bem produzido, imagens polidas e curadas",
+                    "behavior": "Carismático e lisonjeiro no início, espelha seus interesses rapidamente",
+                    "pattern": "Início forte → Foco crescente em si mesmo",
+                    "signal": "Vínculo rápido com auto-orientação subjacente"
+                },
+                "D": {
+                    "label": "D",
+                    "appearance": "Atraente, casual, perfil discreto",
+                    "behavior": "Interage bem inicialmente, mas evita assuntos mais profundos",
+                    "pattern": "Responsivo mas evasivo em profundidade",
+                    "signal": "Distância emocional emergindo ao longo do tempo"
+                }
+            }
+        },
+        "dating_app": {
+            "title": "Aplicativo de Relacionamentos",
+            "context": "Você está usando um aplicativo de relacionamentos. Você fez match com várias pessoas e agora decide com quem interagir.",
+            "situation": "Quatro matches aparecem ao mesmo tempo.",
+            "prompt": "Clique nos perfis na ordem em que você daria mais atenção — do primeiro que você enviaria mensagem ao que deixaria para depois.",
+            "characters": {
+                "A": {
+                    "label": "A",
+                    "appearance": "Visual decisivo e marcante, fotos confiantes e bem compostas",
+                    "bio": "Curta, sugere estilo de vida social e influência",
+                    "behavior": "Sugere um encontro após breve interação",
+                    "signal": "Status e decisão"
+                },
+                "B": {
+                    "label": "B",
+                    "appearance": "Fotos calorosas e claras, apresentação amigável",
+                    "bio": "Reflexiva, mostra personalidade e interesses genuínos",
+                    "behavior": "Engaja em conversa significativa, constrói conexão gradualmente",
+                    "signal": "Estabilidade e profundidade"
+                },
+                "C": {
+                    "label": "C",
+                    "appearance": "Criativo, expressivo, estilo incomum mas atraente",
+                    "bio": "Lúdica e incomum",
+                    "behavior": "Interage de forma imprevisível, flutua em tom e foco",
+                    "signal": "Variabilidade emocional"
+                },
+                "D": {
+                    "label": "D",
+                    "appearance": "Atraente, discreto, apresentação natural e minimalista",
+                    "bio": "Interessante mas ligeiramente vaga",
+                    "behavior": "Engaja bem, mas se esquiva quando a conversa fica mais pessoal",
+                    "signal": "Engajamento com evitação de profundidade"
+                }
+            }
+        },
+        "first_date": {
+            "title": "Primeiro Encontro",
+            "context": "Você vai em encontros separados com pessoas diferentes com quem estava interagindo.",
+            "situation": "Cada pessoa representa um tipo diferente de experiência no primeiro encontro.",
+            "prompt": "Clique nos perfis na ordem de melhor experiência — do mais memorável ao que você não veria novamente.",
+            "characters": {
+                "A": {
+                    "label": "A",
+                    "appearance": "Atraente, elegante, presença confiante",
+                    "behavior": "Cria conexão emocional forte rapidamente, foca muito em você",
+                    "dynamic": "Início intenso, gradualmente muda o foco para si mesmo",
+                    "signal": "Vínculo emocional rápido com risco de instabilidade"
+                },
+                "B": {
+                    "label": "B",
+                    "appearance": "Cuidado, acessível, presença calma e agradável",
+                    "behavior": "Engajado, atencioso, naturalmente interessante, equilibra humor e profundidade",
+                    "dynamic": "Conversa flui com facilidade e engajamento mútuo",
+                    "signal": "Interação estável e estimulante"
+                },
+                "C": {
+                    "label": "C",
+                    "appearance": "Expressivo, relaxado, levemente incomum",
+                    "behavior": "Lúdico e divertido, mantém as coisas leves",
+                    "dynamic": "Evita assuntos mais sérios ou profundos",
+                    "signal": "Diversão sem profundidade"
+                },
+                "D": {
+                    "label": "D",
+                    "appearance": "Elegante mas reservado",
+                    "behavior": "Interage bem inicialmente mas fica distante quando a interação aprofunda",
+                    "dynamic": "Retirada sutil da proximidade emocional",
+                    "signal": "Dificuldade em sustentar intimidade"
+                }
+            }
+        },
+        "communication": {
+            "title": "Comunicação ao Longo do Tempo",
+            "context": "Você tem conversado com pessoas diferentes por algumas semanas. Os padrões de comunicação estão ficando mais claros.",
+            "situation": "Você observa como cada pessoa se comporta ao longo do tempo.",
+            "prompt": "Clique nos perfis na ordem de preferência — de com quem você se sente mais conectada a quem gera mais desconforto.",
+            "characters": {
+                "A": {
+                    "label": "A",
+                    "appearance": "Atraente, polido, forte presença visual",
+                    "behavior": "Alterna entre alta atenção e ausência — intencionalmente",
+                    "pattern": "Aparece intensamente, depois some sem explicação",
+                    "signal": "Inconsistência baseada em controle"
+                },
+                "B": {
+                    "label": "B",
+                    "appearance": "Natural e confiante, aparência confiável",
+                    "behavior": "Mantém comunicação consistente e envolvente",
+                    "pattern": "Estável, presente, emocionalmente disponível",
+                    "signal": "Confiabilidade e estabilidade emocional"
+                },
+                "C": {
+                    "label": "C",
+                    "appearance": "Expressivo, presença emocional intensa",
+                    "behavior": "Reage fortemente a mudanças percebidas na atenção",
+                    "pattern": "Busca reassurance, aumenta o tom emocional",
+                    "signal": "Inconsistência movida por ansiedade"
+                },
+                "D": {
+                    "label": "D",
+                    "appearance": "Casual, levemente desorganizado, ainda atraente",
+                    "behavior": "Esquece, atrasa, inconsistente sem intenção clara",
+                    "pattern": "Comunicação irregular por falta de estrutura",
+                    "signal": "Inconsistência por desorganização"
+                }
+            }
+        },
+        "friction": {
+            "title": "Uma Pequena Crise",
+            "context": "Um pequeno mal-entendido acontece — uma resposta atrasada, uma mudança de planos.",
+            "situation": "Cada pessoa reage de forma diferente.",
+            "prompt": "Clique nos perfis na ordem de quem lidou melhor com a situação — de quem te deixaria mais segura a quem você evitaria.",
+            "characters": {
+                "A": {
+                    "label": "A",
+                    "appearance": "Muito atraente, bem vestido, postura confiante",
+                    "behavior": "Fica na defensiva e sutilmente transfere a culpa",
+                    "dynamic": "Protege o ego em vez de resolver o problema",
+                    "signal": "Baixa responsabilidade"
+                },
+                "B": {
+                    "label": "B",
+                    "appearance": "Calmo, presença acessível, estilo simples mas cuidado",
+                    "behavior": "Aborda o problema diretamente, com clareza e tom calmo",
+                    "dynamic": "Foca na resolução e entendimento mútuo",
+                    "signal": "Regulação emocional e segurança"
+                },
+                "C": {
+                    "label": "C",
+                    "appearance": "Expressivo, presença emocionalmente vívida",
+                    "behavior": "Reage fortemente, busca reassurance imediatamente",
+                    "dynamic": "Aumenta o tom emocional rapidamente",
+                    "signal": "Alta sensibilidade emocional"
+                },
+                "D": {
+                    "label": "D",
+                    "appearance": "Atraente, discreto, estilo neutro",
+                    "behavior": "Engaja inicialmente mas se retira quando a tensão aumenta",
+                    "dynamic": "Evita confronto sustentado",
+                    "signal": "Evitação de conflito"
+                }
+            }
+        }
+    },
+    "retestScenario": {
+        "title": "Comunidade Online",
+        "context": "Você conheceu pessoas através de uma comunidade online com interesses em comum. Depois de algumas semanas de interação, os padrões de comportamento ficam mais claros.",
+        "situation": "Quatro pessoas demonstram interesse de formas distintas.",
+        "prompt": "Clique nos perfis na ordem de sua preferência — de quem mais te chama a atenção a quem te interessa menos.",
+        "characters": {
+            "A": {
+                "label": "A",
+                "appearance": "Reflexivo, bem lido, escreve com beleza e profundidade",
+                "behavior": "Muito interessado em você no início — cita livros, faz perguntas profundas. Com o tempo, as conversas se voltam para suas conquistas.",
+                "signal": "Bombardeio emocional disfarçado de profundidade intelectual"
+            },
+            "B": {
+                "label": "B",
+                "appearance": "Casual, energia lúdica, não tenta impressionar",
+                "behavior": "Consistente, curioso a seu respeito, lembra de coisas que você disse. Igualmente confortável com silêncio e com profundidade.",
+                "signal": "Confiabilidade e interesse genuíno"
+            },
+            "C": {
+                "label": "C",
+                "appearance": "Interessante, toque criativo, aparentemente introspectivo",
+                "behavior": "Se engaja em rajadas intensas, depois some por dias sem explicação",
+                "signal": "Indisponibilidade emocional escondida atrás de 'profundidade'"
+            },
+            "D": {
+                "label": "D",
+                "appearance": "Artístico, expressivo emocionalmente, romântico",
+                "behavior": "Muito presente quando as coisas vão bem, mas fica ansioso e busca reassurance a qualquer distância percebida",
+                "signal": "Instabilidade emocional disfarçada de paixão"
+            }
+        }
+    },
+    "archetypes": {
+        "adventurous_charismatic": {
+            "name": "Aventureiro Carismático",
+            "description": "Magnético, vitalidade inicial marcante, busca constante por sensações e novidade.",
+            "shortOutcome": "Alta intensidade inicial, baixa estabilidade a longo prazo."
+        },
+        "consistent_reliable": {
+            "name": "Consistente Confiável",
+            "description": "Responsável, organizado, alto controle de impulsos e orientação ao longo prazo.",
+            "shortOutcome": "Alta satisfação e longevidade relacional."
+        },
+        "anxious_intense": {
+            "name": "Ansioso Intenso",
+            "description": "Vigilância extrema, necessidade constante de validação e apego excessivo.",
+            "shortOutcome": "Instabilidade e conflitos frequentes; desgaste emocional crônico."
+        },
+        "avoidant_independent": {
+            "name": "Evitativo Independente",
+            "description": "Autonomia rígida, supressão de emoções, manutenção de distância defensiva.",
+            "shortOutcome": "Baixa intimidade e dificuldade em criar vínculos profundos."
+        },
+        "social_dominant": {
+            "name": "Social Dominante",
+            "description": "Assertividade e liderança, uso estratégico de status social.",
+            "shortOutcome": "Atrai pelo status inicial; estabilidade depende do ambiente privado."
+        },
+        "impulsive_disorganized": {
+            "name": "Impulsivo Desorganizado",
+            "description": "Inconsistência, dificuldade com compromissos, imprevisível sem intenção.",
+            "shortOutcome": "Alta taxa de ruptura; desregulação que sobrecarrega o parceiro."
+        },
+        "narcissistic_charming": {
+            "name": "Narcísico Encantador",
+            "description": "Charme impactante no início (love bombing), baixa empatia com o tempo.",
+            "shortOutcome": "Satisfação inicial que decai drasticamente com a convivência."
+        },
+        "secure_balanced": {
+            "name": "Seguro Equilibrado",
+            "description": "Comunicação clara, disponibilidade emocional, usa o parceiro como base segura.",
+            "shortOutcome": "Máxima eficácia relacional; maior probabilidade de relacionamento saudável."
+        }
+    },
+    "survey": {
+        "questions": {
+            "sunday": {
+                "text": "Num domingo à tarde, você preferiria que seu parceiro:",
+                "options": {
+                    "A": "Tivesse planejado uma surpresa incrível para vocês dois.",
+                    "B": "Estivesse ao seu lado lendo em silêncio, sem precisar de entretenimento.",
+                    "C": "Te chamasse para uma aventura de última hora.",
+                    "D": "Perguntasse o que você queria fazer e tornasse isso possível."
+                }
+            },
+            "conflict": {
+                "text": "Quando algo dá errado entre vocês, qual reação te traz mais conforto?",
+                "options": {
+                    "A": "Ele assume a responsabilidade e propõe uma solução clara.",
+                    "B": "Ele pede um tempo para se acalmar antes de conversar.",
+                    "C": "Ele te mostra que você é a prioridade, independente do que aconteceu.",
+                    "D": "Ele reage com intensidade emocional, mostrando o quanto se importa."
+                }
+            },
+            "busyWeek": {
+                "text": "Durante uma semana agitada sua, o que você valorizaria mais?",
+                "options": {
+                    "A": "Mensagens curtas, mas consistentes — sem falhar um dia.",
+                    "B": "Uma ligação surpresa que ilumina seu dia.",
+                    "C": "Ele organizar algo pequeno para aliviar sua semana.",
+                    "D": "Liberdade para cada um cuidar do próprio ritmo, sem cobrança."
+                }
+            },
+            "metaphor": {
+                "text": "Qual metáfora descreve melhor a parceria que você busca?",
+                "options": {
+                    "A": "Uma fogueira: quente, viva, imprevisível.",
+                    "B": "Um porto: sempre disponível quando você precisar.",
+                    "C": "Uma corrente elétrica: tensão e descarga constante.",
+                    "D": "Um jardim: cresce devagar, mas dura e floresce."
+                }
+            },
+            "absence": {
+                "text": "Seu parceiro viajou por uma semana. O que você preferiria ao final?",
+                "options": {
+                    "A": "Ter sentido falta de um jeito que ficou levemente ansiosa.",
+                    "B": "Ter tido espaço para você mesma, sem culpa de nenhum dos dois.",
+                    "C": "Muitas mensagens, fotos e histórias do que ele viveu.",
+                    "D": "Conversas diárias breves, mas sempre presentes e significativas."
+                }
+            },
+            "decision": {
+                "text": "Em uma decisão importante que te afeta, você prefere um parceiro que:",
+                "options": {
+                    "A": "Tome a liderança e decida com confiança.",
+                    "B": "Analise junto com você e cheguem a uma decisão conjunta.",
+                    "C": "Deixe você decidir, respeitando totalmente sua autonomia.",
+                    "D": "Mostre entusiasmo pelas opções mais ousadas e desafiadoras."
+                }
+            }
+        }
+    },
+    "diagnostic": {
+        "consequences": {
+            "anxiety_dopamine_cycle": {
+                "title": "Ciclo de Ansiedade e Dopamina",
+                "summary": "Seus padrões instintivos revelam uma forte atração por perfis de alta estimulação emocional.",
+                "body": "Perfis com essas características tendem a gerar:\n• Alta intensidade no início do relacionamento\n• Instabilidade crescente ao longo do tempo\n• Ciclos de aproximação e distância que alimentam a ansiedade\n• Maior probabilidade de frustração emocional crônica"
+            },
+            "stability_readiness": {
+                "title": "Prontidão para Estabilidade",
+                "summary": "Seus padrões indicam disponibilidade emocional e valorização de comunicação clara.",
+                "body": "Perfis com essas características tendem a gerar:\n• Maior resiliência nos momentos de crise\n• Crescimento contínuo da confiança mútua\n• Resolução de conflitos mais eficaz\n• Maior probabilidade de satisfação relacional a longo prazo"
+            },
+            "mixed_attraction": {
+                "title": "Atração em Transição",
+                "summary": "Seus padrões mostram uma mistura de atração por estimulação e por estabilidade.",
+                "body": "Esse padrão reflete um momento de transição. Há uma consciência emergente do conflito entre o que estimula e o que sustenta. Essa consciência é, em si mesma, um passo importante."
+            },
+            "avoidance_pattern": {
+                "title": "Padrão de Distância Emocional",
+                "summary": "Seus padrões instintivos revelam atração por perfis que mantêm distância emocional.",
+                "body": "Perfis com essas características tendem a gerar:\n• Baixa intimidade ao longo do tempo\n• Sensação de perseguir alguém que não está totalmente disponível\n• Dificuldade em criar vínculos profundos e duradouros"
+            }
+        }
+    }
+}

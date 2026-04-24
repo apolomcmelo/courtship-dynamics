@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-slate-950 text-slate-100 font-sans antialiased;
+        min-height: 100vh;
+    }
+
+    #root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@layer components {
+    .gradient-text {
+        @apply bg-gradient-to-r from-blue-400 to-violet-500 bg-clip-text text-transparent;
+    }
+
+    .glass-card {
+        @apply bg-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl;
+    }
+
+    .gradient-border {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        padding: 1px;
+        border-radius: 1rem;
+    }
+
+    .gradient-border-inner {
+        @apply bg-slate-900 rounded-[calc(1rem-1px)] h-full w-full;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
