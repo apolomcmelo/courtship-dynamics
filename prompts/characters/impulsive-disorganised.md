@@ -1,25 +1,25 @@
 Photorealistic character reference photo for AI video generation. This man must be reproduced identically in later video scenes, so render every feature below clearly and exactly as described.
 
 IDENTITY
-Brazilian man of Southern-European descent, 30 years old, about 1.76 m tall, average build, slightly soft around the middle. Light-olive skin.
-Round face with full cheeks and a short, slightly upturned nose.
-Black hair in loose curls, medium length reaching the tops of the ears, a little unruly.
-Uneven four-to-five-day stubble, slightly patchy on the cheeks.
+Brazilian man of Southern-European descent, 30 years old, about 1.76 m tall, average build. Light-olive skin.
+Slightly rounded face with soft cheeks, warm features and a straight nose.
+Black hair in loose curls, medium length reaching the tops of the ears, natural and slightly untamed.
+Four-day stubble, a little longer and less neatly edged than a trimmed beard.
 Brown eyes.
-A light scattering of freckles across the nose and upper cheeks.
-Ordinary, everyday good looks, like a real person from a street-casting call rather than a model or actor: pleasant and plausible as a date, but not striking.
+A light dusting of freckles across the nose and upper cheeks.
+Attractive in a natural, believable way: clearly good-looking and appealing, the kind of man many people would be happy to match with on a dating app, while still looking like a real person rather than a high-fashion or runway model. Well-proportioned, harmonious features.
 
 EXPRESSION
-Calm, pleasant, neutral expression: mouth closed with a faint, friendly hint of a smile, relaxed brows, eyes fully open, head level. This is a neutral identity reference, not a portrait that conveys a personality.
+Calm, pleasant, neutral expression: mouth closed with a relaxed, friendly hint of a smile, relaxed brows, eyes fully open, head level. This is a neutral identity reference, not a portrait that conveys a personality.
 
 WARDROBE
 Smart-casual outfit at an everyday weekend level, as for a city café or bar: a dusty-blue casual cotton shirt worn untucked with the top two buttons open and the sleeves rolled up, sand-coloured chinos and plain white canvas low-top sneakers. Grooming is slightly relaxed but clean and not sloppy: the shirt is lightly creased, the sleeves are rolled to slightly different heights, and the sneakers are clean but visibly worn in.
 
 STUDIO AND RENDERING
-Plain light-grey seamless studio backdrop. Soft, even, colour-neutral front lighting with no warm or cool cast, so skin tone, hair colour and clothing colours are rendered accurately. Photorealistic photograph with natural skin texture (visible pores and small imperfections), realistic individual hair strands and real fabric texture. Unretouched look.
+Plain light-grey seamless studio backdrop. Soft, even, colour-neutral front lighting with no warm or cool cast, so skin tone, hair colour and clothing colours are rendered accurately. Photorealistic photograph in the style of a professional portrait session: healthy skin with natural, realistic texture (not plastic or airbrushed), realistic individual hair strands and real fabric texture.
 
 AVOID
-Fashion-model, actor, menswear-catalogue or lookbook aesthetics; airbrushed skin; perfect facial symmetry; smirk, head tilt or smouldering look. Logos, brand marks, swooshes, stripes or text on any clothing or shoes. Watches, jewellery, rings, glasses, hats, bags, belts or any other accessories. Tattoos. Blazers, suits, ties or sportswear.
+High-fashion, runway or editorial-model aesthetics; plastic or airbrushed skin; exaggerated or unflattering features; smirk, head tilt or smouldering look. Logos, brand marks, swooshes, stripes or text on any clothing or shoes. Watches, jewellery, rings, glasses, hats, bags, belts or any other accessories. Tattoos. Blazers, suits, ties or sportswear.
 
 FRAMING
 Full-body reference: the whole man from the top of his hair to the soles of both shoes, nothing cropped, with a small clean margin of backdrop above the head and below the feet. Camera at chest height with a standard lens and no wide-angle distortion. Body turned about 30 degrees to the camera's left, face turned toward the camera, eyes looking into the lens. Arms relaxed at his sides, both hands fully visible and out of pockets, fingers natural. Feet about shoulder-width apart, weight evenly balanced. Face sharp and detailed.
@@ -35,15 +35,15 @@ Generate the base full-body image first and approve it. Then create each extra a
 
 A. Face, front
 FRAMING
-Head-and-shoulders close-up from mid-chest up, matching the attached reference image exactly: same face, hair, facial hair, skin tone and clothing. Face pointing straight at the camera, eyes looking into the lens, head level. The face fills most of the frame and is sharp and highly detailed. Keep especially: the round face with full cheeks, short slightly upturned nose, freckles across the nose and cheeks, black loose curls reaching the ears, patchy four-to-five-day stubble.
+Head-and-shoulders close-up from mid-chest up, matching the attached reference image exactly: same face, hair, facial hair, skin tone and clothing. Face pointing straight at the camera, eyes looking into the lens, head level. The face fills most of the frame and is sharp and highly detailed. Keep especially: the slightly rounded face with soft cheeks, light freckles across the nose and cheeks, black loose curls reaching the ears, four-day stubble.
 
 B. Face, three-quarter
 FRAMING
-Head-and-shoulders close-up from mid-chest up, matching the attached reference image exactly: same face, hair, facial hair, skin tone and clothing. Head and shoulders turned about 45 degrees to the camera's left, eyes looking toward the camera. The face is sharp and highly detailed. Keep especially: the round face with full cheeks, short slightly upturned nose, freckles across the nose and cheeks, black loose curls reaching the ears, patchy four-to-five-day stubble.
+Head-and-shoulders close-up from mid-chest up, matching the attached reference image exactly: same face, hair, facial hair, skin tone and clothing. Head and shoulders turned about 45 degrees to the camera's left, eyes looking toward the camera. The face is sharp and highly detailed. Keep especially: the slightly rounded face with soft cheeks, light freckles across the nose and cheeks, black loose curls reaching the ears, four-day stubble.
 
 C. Face, profile
 FRAMING
-Head-and-shoulders close-up from mid-chest up, matching the attached reference image exactly: same face, hair, facial hair, skin tone and clothing. Exact side profile facing the camera's left, eyes looking straight ahead. Nose, lips, chin, jawline, ear and hairline clearly visible and sharp. Keep especially: the round face with full cheeks, short slightly upturned nose, freckles across the nose and cheeks, black loose curls reaching the ears, patchy four-to-five-day stubble.
+Head-and-shoulders close-up from mid-chest up, matching the attached reference image exactly: same face, hair, facial hair, skin tone and clothing. Exact side profile facing the camera's left, eyes looking straight ahead. Nose, lips, chin, jawline, ear and hairline clearly visible and sharp. Keep especially: the slightly rounded face with soft cheeks, light freckles across the nose and cheeks, black loose curls reaching the ears, four-day stubble.
 
 D. Full body, front
 FRAMING
