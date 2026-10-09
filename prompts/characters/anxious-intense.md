@@ -1,19 +1,54 @@
-Create a photorealistic character-reference portrait of the SAME fictional adult man who must remain visually identical across multiple future video-generation scenes.
+Photorealistic character reference photo for AI video generation. This man must be reproduced identically in later video scenes, so render every feature below clearly and exactly as described.
 
-Male, approximately 29 years old, slim-athletic build, medium height. Moderately attractive, with a somewhat expressive and youthful appearance. He must NOT be exceptionally handsome.
+IDENTITY
+Brazilian man of Southern-European descent, 29 years old, about 1.77 m tall, slim build with fairly narrow shoulders. Light-olive skin.
+Youthful, heart-shaped face with a soft jaw, a slightly pointed chin and full lips.
+Dark-brown hair, straight, medium length, with a soft fringe falling across the forehead.
+Clean-shaven.
+Large dark-brown eyes.
+Thick, straight dark eyebrows that nearly meet above the nose.
+Ordinary, everyday good looks, like a real person from a street-casting call rather than a model or actor: pleasant and plausible as a date, but not striking.
 
-Large dark-brown eyes, expressive eyebrows, medium-length dark hair with natural texture, light beard. Slightly softer facial structure than the other male characters. Natural skin texture, subtle asymmetry and realistic imperfections.
+EXPRESSION
+Calm, pleasant, neutral expression: mouth closed with a faint, friendly hint of a smile, relaxed brows, eyes fully open, head level. This is a neutral identity reference, not a portrait that conveys a personality.
 
-Neutral expression should be emotionally expressive but NOT visibly anxious. His eyes can appear attentive and sensitive, but do not create a distressed, insecure or unstable appearance.
+WARDROBE
+Smart-casual outfit at an everyday weekend level, as for a city café or bar: a deep burgundy fine-knit crew-neck sweater, light-grey chinos and plain dark-navy suede low-top sneakers. Normal, tidy everyday grooming.
 
-Wardrobe: fitted dark neutral shirt with black or dark trousers, optionally a simple dark jacket. Contemporary and attractive without looking theatrical.
+STUDIO AND RENDERING
+Plain light-grey seamless studio backdrop. Soft, even, colour-neutral front lighting with no warm or cool cast, so skin tone, hair colour and clothing colours are rendered accurately. Photorealistic photograph with natural skin texture (visible pores and small imperfections), realistic individual hair strands and real fabric texture. Unretouched look.
 
-Neutral professional studio background, soft realistic studio lighting.
+AVOID
+Fashion-model, actor, menswear-catalogue or lookbook aesthetics; airbrushed skin; perfect facial symmetry; smirk, head tilt or smouldering look. Logos, brand marks, swooshes, stripes or text on any clothing or shoes. Watches, jewellery, rings, glasses, hats, bags, belts or any other accessories. Tattoos. Blazers, suits, ties or sportswear.
 
-Photorealistic cinematic photography, realistic proportions, natural skin texture, realistic hair and facial details.
+FRAMING
+Full-body reference: the whole man from the top of his hair to the soles of both shoes, nothing cropped, with a small clean margin of backdrop above the head and below the feet. Camera at chest height with a standard lens and no wide-angle distortion. Body turned about 30 degrees to the camera's left, face turned toward the camera, eyes looking into the lens. Arms relaxed at his sides, both hands fully visible and out of pockets, fingers natural. Feet about shoulder-width apart, weight evenly balanced. Face sharp and detailed.
 
-Full-body character reference. Show the entire person from the top of the head to the soles of both feet, with no part of the body cropped. The character should occupy approximately 70–80% of the image height, leaving a moderate amount of clean negative space above the head and below the feet. Use a medium-distance camera position rather than a close-up portrait. Keep the face clearly recognizable and detailed despite the full-body framing. Three-quarter standing pose, relaxed natural posture, both arms and both legs fully visible.
+---
 
-Do not use a headshot, waist-up crop, medium portrait, close-up, or distant full-body shot.
+ANGLE VARIATIONS (do not paste this section with the base prompt)
 
-IMPORTANT: Do not make him look emotionally unstable, needy, fragile or psychologically distressed. Do not use facial anxiety as a visual shortcut. His intensity and reassurance-seeking must emerge through behavior, timing, emotional escalation and reactions to uncertainty in later scenarios.
+Generate the base full-body image first and approve it. Then create each extra angle in its own new session:
+1. Attach the approved full-body image as the identity reference.
+2. Paste the base prompt above, but leave out its FRAMING section.
+3. Paste ONE of the variations below in place of FRAMING.
+
+A. Face, front
+FRAMING
+Head-and-shoulders close-up from mid-chest up, matching the attached reference image exactly: same face, hair, facial hair, skin tone and clothing. Face pointing straight at the camera, eyes looking into the lens, head level. The face fills most of the frame and is sharp and highly detailed. Keep especially: the youthful heart-shaped face, large dark-brown eyes, thick straight eyebrows that nearly meet, full lips, dark-brown fringe across the forehead, clean-shaven skin.
+
+B. Face, three-quarter
+FRAMING
+Head-and-shoulders close-up from mid-chest up, matching the attached reference image exactly: same face, hair, facial hair, skin tone and clothing. Head and shoulders turned about 45 degrees to the camera's left, eyes looking toward the camera. The face is sharp and highly detailed. Keep especially: the youthful heart-shaped face, large dark-brown eyes, thick straight eyebrows that nearly meet, full lips, dark-brown fringe across the forehead, clean-shaven skin.
+
+C. Face, profile
+FRAMING
+Head-and-shoulders close-up from mid-chest up, matching the attached reference image exactly: same face, hair, facial hair, skin tone and clothing. Exact side profile facing the camera's left, eyes looking straight ahead. Nose, lips, chin, jawline, ear and hairline clearly visible and sharp. Keep especially: the youthful heart-shaped face, large dark-brown eyes, thick straight eyebrows that nearly meet, full lips, dark-brown fringe across the forehead, clean-shaven skin.
+
+D. Full body, front
+FRAMING
+Full-body reference matching the attached image exactly, from the top of the hair to the soles of both shoes, nothing cropped, small clean margin above and below. Body and face pointing straight at the camera, eyes looking into the lens. Arms relaxed at his sides, both hands fully visible and out of pockets, feet about shoulder-width apart. Keep especially: slim build with narrow shoulders, dark-brown hair with a fringe, burgundy knit sweater, light-grey chinos, navy suede sneakers.
+
+E. Full body, back
+FRAMING
+Full-body reference matching the attached image exactly, from the top of the hair to the soles of both shoes, nothing cropped, small clean margin above and below. Seen directly from behind, arms relaxed at his sides, hands visible. Show the back of the head and hair shape, the back of the clothing and the heels of both shoes. Keep especially: slim build with narrow shoulders, dark-brown hair with a fringe, burgundy knit sweater, light-grey chinos, navy suede sneakers.
